@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사회복지법인 충주어린이집 — 아이들의 행복한 첫 번째 세상</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mint:           #A8E6CF;
+      --mint-light:     #D4F5E9;
+      --mint-dark:      #5DBF9A;
+      --peach:          #FFD3B6;
+      --peach-light:    #FFF0E8;
+      --peach-dark:     #E8856A;
+      --lavender:       #D4C5F9;
+      --lavender-light: #EDE8FF;
+      --lavender-dark:  #8B7BD8;
+      --sky:            #B8E0FF;
+      --sky-light:      #E8F5FF;
+      --sky-dark:       #5BA8E5;
+      --cream:          #FFF9E6;
+      --yellow:         #FFE066;
+      --text-dark:      #3D2C2C;
+      --text-mid:       #7A6A6A;
+      --text-light:     #B0A0A0;
+      --bg-main:        #FAFAFA;
+      --white:          #FFFFFF;
+      --shadow:         0 4px 16px rgba(61,44,44,0.08);
+      --shadow-sm:      0 2px 8px rgba(61,44,44,0.06);
+      --border:         1.5px solid rgba(61,44,44,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-main);
+    }
+
+    /* ───── NAV ───── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 64px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--mint-dark);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 14px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--mint-dark); }
+    .nav-cta {
+      background: #FEE500;
+      color: #3C1E1E;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    /* ───── MOBILE MENU ───── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: var(--border);
+      padding: 8px 0;
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 28px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 15px;
+      border-bottom: var(--border);
+      transition: background .15s;
+    }
+    .mobile-menu a:hover { background: var(--mint-light); }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ───── HERO ───── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(20,15,15,.45) 0%, rgba(20,15,15,.25) 42%, rgba(15,10,10,.65) 100%),
+        url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.92);
+      border: var(--border);
+      border-radius: 100px;
+      padding: 8px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--mint-dark);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero h1 {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+      color: var(--white);
+      text-shadow: 0 2px 16px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.5);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--mint-light);
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 44px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.5);
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ───── BUTTONS ───── */
+    .btn {
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Noto Sans KR', sans-serif;
+      cursor: pointer;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn:active { transform: scale(.97); }
+    .btn-kakao  { background: #FEE500; color: #3C1E1E; }
+    .btn-insta  { background: var(--white); color: var(--text-dark); border: var(--border); }
+    .btn-mint   { background: var(--mint); color: var(--text-dark); }
+    .btn-phone  { background: var(--peach); color: var(--text-dark); }
+    .btn-naver  { background: #03C75A; color: #fff; }
+
+    /* ───── SECTION COMMON ───── */
+    section { padding: 88px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 52px; }
+    .badge {
+      display: inline-block;
+      background: var(--mint-light);
+      color: var(--mint-dark);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-head h2 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .section-head p {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ───── ABOUT ───── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-visual {
+      border-radius: 28px;
+      height: 420px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .about-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-text .badge { margin-bottom: 16px; }
+    .about-text h2 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .about-text > p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .info-card {
+      background: var(--bg-main);
+      border: var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .info-card .ic { font-size: 26px; margin-bottom: 6px; }
+    .info-card label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 4px;
+    }
+    .info-card span {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .info-card a { color: var(--mint-dark); text-decoration: none; }
+
+    /* ───── PROGRAM ───── */
+    #program { background: var(--bg-main); }
+    .prog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .prog-card {
+      background: var(--white);
+      border: var(--border);
+      border-radius: 24px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all .2s;
+    }
+    .prog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 32px rgba(61,44,44,0.12);
+    }
+    .prog-photo {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .prog-tag {
+      display: inline-block;
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .prog-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .prog-card p  { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+    /* ───── GALLERY ───── */
+    #gallery { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .gallery-item {
+      border-radius: 22px;
+      aspect-ratio: 1;
+      display: block;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .25s;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:hover { transform: scale(1.04); box-shadow: var(--shadow); }
+    .g1 { background: linear-gradient(135deg, var(--mint-light),    var(--peach-light)); }
+    .g2 { background: linear-gradient(135deg, var(--peach-light),   var(--lavender-light)); }
+    .g3 { background: linear-gradient(135deg, var(--sky-light),     var(--mint-light)); }
+    .g4 { background: linear-gradient(135deg, var(--lavender-light),var(--sky-light)); }
+    .g5 { background: linear-gradient(135deg, var(--cream),         var(--peach-light)); }
+    .g6 { background: linear-gradient(135deg, var(--mint-light),    var(--lavender-light)); }
+    .gallery-footer { text-align: center; }
+
+    /* ───── MAP ───── */
+    #map { background: var(--bg-main); }
+    .map-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .map-details { display: flex; flex-direction: column; gap: 16px; }
+    .map-row {
+      background: var(--white);
+      border: var(--border);
+      border-radius: 20px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .map-row .mi { font-size: 26px; flex-shrink: 0; }
+    .map-row label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 4px;
+    }
+    .map-row p { font-size: 15px; font-weight: 600; color: var(--text-dark); }
+    .map-row a { color: var(--mint-dark); text-decoration: none; font-weight: 700; }
+    .map-btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .map-btn-row .btn { font-size: 14px; padding: 11px 22px; }
+    .map-visual {
+      background: linear-gradient(145deg, var(--mint-light), var(--sky-light));
+      border-radius: 28px;
+      height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      padding: 32px;
+    }
+    .map-visual .map-big-icon { font-size: 64px; }
+    .map-visual h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); }
+    .map-visual p  { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+    .map-visual .map-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .map-visual .map-btns .btn { font-size: 13px; padding: 10px 18px; }
+
+    /* ───── CONTACT ───── */
+    #contact {
+      background: linear-gradient(145deg, var(--mint-light), var(--peach-light));
+      padding: 80px 24px;
+    }
+    .cta-box {
+      background: var(--white);
+      border-radius: 36px;
+      padding: 64px 48px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .cta-box h2 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .cta-box > p {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-btns .btn { padding: 16px 32px; font-size: 16px; }
+
+    /* ───── FOOTER ───── */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,.65);
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .footer-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--mint);
+      margin-bottom: 10px;
+    }
+    .footer-info { font-size: 13px; line-height: 1.9; margin-bottom: 24px; }
+    .footer-icons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .footer-icons a {
+      width: 42px; height: 42px;
+      background: rgba(255,255,255,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .footer-icons a:hover { background: rgba(255,255,255,.2); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.3); }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: block; }
+
+      .hero h1 { font-size: 36px; }
+      .hero p   { font-size: 15px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-visual { height: 220px; font-size: 64px; order: -1; }
+      .about-text h2 { font-size: 28px; }
+
+      .prog-grid  { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .map-layout { grid-template-columns: 1fr; }
+      .map-visual { height: 260px; }
+
+      .section-head h2 { font-size: 28px; }
+      .cta-box { padding: 40px 24px; }
+      .cta-box h2 { font-size: 28px; }
+
+      section { padding: 64px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+
+      .info-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .cta-btns .btn { width: 100%; justify-content: center; }
+      .map-btn-row .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">🌱 충주어린이집</a>
+    <ul class="nav-links">
+      <li><a href="#about">소개</a></li>
+      <li><a href="#program">프로그램</a></li>
+      <li><a href="#gallery">갤러리</a></li>
+      <li><a href="#map">오시는 길</a></li>
+      <li><a href="#contact">문의</a></li>
+    </ul>
+    <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="nav-cta">💬 카카오톡 문의</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="메뉴">☰</button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about"   onclick="closeMenu()">소개</a>
+  <a href="#program" onclick="closeMenu()">프로그램</a>
+  <a href="#gallery" onclick="closeMenu()">갤러리</a>
+  <a href="#map"     onclick="closeMenu()">오시는 길</a>
+  <a href="#contact" onclick="closeMenu()">문의</a>
+  <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" onclick="closeMenu()">💬 카카오톡 문의</a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🌸 충북 충주어린이집</div>
+    <h1>아이들의<br><em>행복한 첫 번째 세상</em></h1>
+    <p>사랑과 배움이 가득한 충주어린이집에서<br>우리 아이의 무한한 가능성을 함께 발견해요.</p>
+    <div class="hero-btns">
+      <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="btn btn-kakao">💬 카카오톡으로 문의하기</a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <img src="images/about.jpg" alt="충주어린이집">
+      </div>
+      <div class="about-text">
+        <div class="badge">우리 어린이집 소개</div>
+        <h2>충주어린이집에<br>오신 것을 환영해요!</h2>
+        <p>0세부터 7세까지 분절없는 체계적인 교육으로 정서적으로 안정적인 성장을 이룹니다. 전문 교사진과 함께 아이들의 개성과 창의성을 존중하는 교육을 실천하고 있습니다.</p>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="ic">🕐</div>
+            <label>운영 시간</label>
+            <span>07:30 ~ 19:30</span>
+          </div>
+          <div class="info-card">
+            <div class="ic">🎂</div>
+            <label>대상 연령</label>
+            <span>0세 ~ 7세</span>
+          </div>
+          <div class="info-card">
+            <div class="ic">📍</div>
+            <label>위치</label>
+            <span><a href="https://www.google.com/maps/search/?api=1&query=충북+충주시+원호암4길+12" target="_blank">충북 충주시 원호암4길 12</a></span>
+          </div>
+          <div class="info-card">
+            <div class="ic">📞</div>
+            <label>전화</label>
+            <span><a href="tel:043-852-2493">043-852-2493</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PROGRAM ══════════════ -->
+<section id="program">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">충주어린이집 철학</div>
+      <h2>지혜로운 어린이로 자랍니다.</h2>
+      <p>1957년 설립된 사회복지법인 어린이집으로 아이 한명, 한명의 속도를 존중하며 놀이와 경험 속에서 스스로 성장하도록 합니다.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <img class="prog-photo" src="images/philosophy1.jpg" alt="건강한 가정">
+        <div class="prog-tag" style="background:var(--mint-light);color:var(--mint-dark);">건강한 가정</div>
+        <h3>가정의 건강함이 첫걸음</h3>
+        <p>부모가 서로를 존중하고 아이를 따뜻하게 바라볼 때, 아이는 안정감 속에서 스스로 성장할 힘을 얻어요.</p>
+      </div>
+      <div class="prog-card">
+        <img class="prog-photo" src="images/philosophy2.jpg" alt="행복한 어린이">
+        <div class="prog-tag" style="background:var(--sky-light);color:var(--sky-dark);">행복한 어린이</div>
+        <h3>아이의 웃음이 가장 빛나는 곳</h3>
+        <p>아이의 웃음과 행복이 빛나는 환경 속에서, 스스로 삶을 즐기며 마음껏 꿈을 키워가요.</p>
+      </div>
+      <div class="prog-card">
+        <img class="prog-photo" src="images/philosophy3.jpg" alt="보람있는 교직원">
+        <div class="prog-tag" style="background:var(--peach-light);color:var(--peach-dark);">보람있는 교직원</div>
+        <h3>교직원이 행복해야 아이도 행복해요</h3>
+        <p>전문성과 열정을 발휘하며 서로 존중하고 함께 성장하는 보람 있는 교직문화를 만들어가요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GALLERY ══════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">우리 어린이집 모습</div>
+      <h2>사진으로 만나는<br>충주어린이집</h2>
+      <p>아이들이 행복하게 생활하는 일상을 담았어요.</p>
+    </div>
+    <div class="gallery-grid">
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery1.jpg" alt="갤러리 사진 1"></a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery2.jpg" alt="갤러리 사진 2"></a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery3.jpg" alt="갤러리 사진 3"></a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery4.jpg" alt="갤러리 사진 4"></a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery5.jpg" alt="갤러리 사진 5"></a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery6.jpg" alt="갤러리 사진 6"></a>
+    </div>
+    <div class="gallery-footer">
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램에서 더 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MAP ══════════════ -->
+<section id="map">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">오시는 길</div>
+      <h2>충주어린이집<br>찾아오시는 방법</h2>
+    </div>
+    <div class="map-layout">
+      <div class="map-details">
+        <div class="map-row">
+          <span class="mi">📍</span>
+          <div>
+            <label>주소</label>
+            <p>충북 충주시 원호암4길 12</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="mi">📞</span>
+          <div>
+            <label>전화번호</label>
+            <p><a href="tel:043-852-2493">043-852-2493</a></p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="mi">🕐</span>
+          <div>
+            <label>운영 시간</label>
+            <p>월 ~ 금 &nbsp; 07:30 ~ 19:30</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="mi">💬</span>
+          <div>
+            <label>온라인 문의</label>
+            <p><a href="https://open.kakao.com/o/sqMRm9tf" target="_blank">카카오톡 오픈채팅으로 문의하기 →</a></p>
+          </div>
+        </div>
+        <div class="map-btn-row">
+          <a href="https://map.kakao.com/?q=충북+충주시+원호암4길+12" target="_blank" class="btn btn-kakao">🗺 카카오맵 보기</a>
+          <a href="https://map.naver.com/v5/search/충북 충주시 원호암4길 12" target="_blank" class="btn btn-naver">🗺 네이버지도 보기</a>
+        </div>
+      </div>
+
+      <div class="map-visual">
+        <div class="map-big-icon">🗺</div>
+        <h3>충주어린이집</h3>
+        <p>충북 충주시<br>원호암4길 12</p>
+        <div class="map-btns">
+          <a href="https://map.kakao.com/?q=충북+충주시+원호암4길+12" target="_blank" class="btn btn-kakao">카카오맵 열기</a>
+          <a href="https://map.naver.com/v5/search/충북 충주시 원호암4길 12" target="_blank" class="btn btn-naver">네이버지도 열기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-box">
+      <div class="badge">문의하기</div>
+      <h2>입학 문의가 있으신가요?</h2>
+      <p>카카오톡으로 편하게 문의해 주세요!<br>빠르고 친절하게 답변드릴게요. 🌸</p>
+      <div class="cta-btns">
+        <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="btn btn-kakao">💬 카카오톡으로 문의</a>
+        <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램 DM</a>
+        <a href="tel:043-852-2493" class="btn btn-phone">📞 전화 문의</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-name">🌱 사회복지법인 충주어린이집</div>
+  <div class="footer-info">
+    충북 충주시 원호암4길 12<br>
+    전화: 043-852-2493
+  </div>
+  <div class="footer-icons">
+    <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" title="인스타그램">📸</a>
+    <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" title="카카오톡">💬</a>
+    <a href="tel:043-852-2493" title="전화">📞</a>
+  </div>
+  <div class="footer-copy">© 2025 사회복지법인 충주어린이집. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.nav-hamburger');
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
