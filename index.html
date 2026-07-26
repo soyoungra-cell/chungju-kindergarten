@@ -427,8 +427,103 @@
     .prog-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
     .prog-card p  { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
 
+    /* ───── DAILY SCHEDULE ───── */
+    #daily { background: var(--white); }
+    .day-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .day-card {
+      border: var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+    .day-head {
+      padding: 22px 26px;
+      text-align: center;
+    }
+    .day-head h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .day-head span {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .day-a .day-head { background: var(--mint-light); }
+    .day-a .day-head span { color: #3AA47D; }
+    .day-b .day-head { background: var(--sky-light); }
+    .day-b .day-head span { color: var(--sky-dark); }
+    .day-list {
+      list-style: none;
+      padding: 6px 0 12px;
+    }
+    .day-list li {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 14px;
+      padding: 13px 26px;
+      align-items: start;
+    }
+    .day-list li + li { border-top: 1px solid rgba(61,44,44,0.06); }
+    .day-time {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-light);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+    .day-act {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.55;
+    }
+    .day-act small {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+    .day-a .key { background: #F2FBF7; }
+    .day-a .key .day-time { color: #3AA47D; }
+    .day-b .key { background: #F1F8FF; }
+    .day-b .key .day-time { color: var(--sky-dark); }
+    .day-note {
+      margin-top: 28px;
+      background: var(--cream);
+      border: var(--border);
+      border-radius: 18px;
+      padding: 22px 26px;
+    }
+    .day-note li {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+    }
+    .day-note li + li { margin-top: 8px; }
+    .day-note li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 10px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--mint-dark);
+    }
+    .day-note strong { color: var(--text-dark); font-weight: 700; }
+
     /* ───── GALLERY ───── */
-    #gallery { background: var(--white); }
+    #gallery { background: var(--bg-main); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -463,7 +558,7 @@
     .gallery-footer { text-align: center; }
 
     /* ───── MAP ───── */
-    #map { background: var(--bg-main); }
+    #map { background: var(--white); }
     .map-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -601,6 +696,12 @@
       .prog-grid  { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
+      .day-grid { grid-template-columns: 1fr; gap: 22px; }
+      .day-list li { grid-template-columns: 92px 1fr; gap: 12px; padding: 12px 18px; }
+      .day-time { font-size: 12.5px; }
+      .day-act { font-size: 14.5px; }
+      .day-note { padding: 18px 20px; }
+
       .map-layout { grid-template-columns: 1fr; }
       .map-visual { height: 260px; }
 
@@ -633,7 +734,8 @@
     <ul class="nav-links">
       <li><a href="#about">소개</a></li>
       <li><a href="#director">원장 인사말</a></li>
-      <li><a href="#program">프로그램</a></li>
+      <li><a href="#program">운영철학</a></li>
+      <li><a href="#daily">하루 일과</a></li>
       <li><a href="#gallery">갤러리</a></li>
       <li><a href="#map">오시는 길</a></li>
       <li><a href="#contact">문의</a></li>
@@ -646,7 +748,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about"    onclick="closeMenu()">소개</a>
   <a href="#director" onclick="closeMenu()">원장 인사말</a>
-  <a href="#program"  onclick="closeMenu()">프로그램</a>
+  <a href="#program"  onclick="closeMenu()">운영철학</a>
+  <a href="#daily"    onclick="closeMenu()">하루 일과</a>
   <a href="#gallery" onclick="closeMenu()">갤러리</a>
   <a href="#map"     onclick="closeMenu()">오시는 길</a>
   <a href="#contact" onclick="closeMenu()">문의</a>
@@ -760,6 +863,68 @@
         <p>전문성과 열정을 발휘하며 서로 존중하고 함께 성장하는 보람 있는 교직문화를 만들어가요.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════ DAILY SCHEDULE ══════════════ -->
+<section id="daily">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">하루 일과</div>
+      <h2>아이의 하루를<br>이렇게 보냅니다</h2>
+      <p>07:30부터 19:30까지, 영아반과 유아반의 발달 특성에 맞춰 하루를 구성합니다.</p>
+    </div>
+
+    <div class="day-grid">
+      <!-- 영아반 -->
+      <div class="day-card day-a">
+        <div class="day-head">
+          <h3>영아반</h3>
+          <span>만 0세 ~ 만 2세</span>
+        </div>
+        <ul class="day-list">
+          <li><div class="day-time">07:30~09:00</div><div class="day-act">등원 및 맞이하기<small>건강상태 확인, 통합보육</small></div></li>
+          <li><div class="day-time">09:00~09:30</div><div class="day-act">오전 간식</div></li>
+          <li><div class="day-time">09:30~10:00</div><div class="day-act">기저귀 갈기 및 배변활동<small>손 씻기, 개별 일상생활 돌봄</small></div></li>
+          <li><div class="day-time">10:00~11:00</div><div class="day-act">오전 실내 놀이<small>영역별 자유놀이, 감각·탐색 활동<br>만 2세반은 주 2회 특별활동(20분) 진행</small></div></li>
+          <li><div class="day-time">11:00~11:40</div><div class="day-act">바깥놀이 및 산책</div></li>
+          <li><div class="day-time">11:40~12:30</div><div class="day-act">점심 및 이 닦기</div></li>
+          <li class="key"><div class="day-time">12:30~14:30</div><div class="day-act">낮잠 및 휴식<small>개별 수면 리듬을 존중하여 돌봅니다</small></div></li>
+          <li><div class="day-time">14:30~15:00</div><div class="day-act">잠자리 정리 및 배변활동<small>손 씻기, 컨디션 확인</small></div></li>
+          <li><div class="day-time">15:00~15:30</div><div class="day-act">오후 간식</div></li>
+          <li><div class="day-time">15:30~16:30</div><div class="day-act">오후 놀이<small>실내·외 자유놀이</small></div></li>
+          <li><div class="day-time">16:30~17:30</div><div class="day-act">놀이 정리 및 귀가 준비, 하원</div></li>
+          <li><div class="day-time">17:30~19:30</div><div class="day-act">연장보육</div></li>
+        </ul>
+      </div>
+
+      <!-- 유아반 -->
+      <div class="day-card day-b">
+        <div class="day-head">
+          <h3>유아반</h3>
+          <span>만 3세 ~ 만 5세</span>
+        </div>
+        <ul class="day-list">
+          <li><div class="day-time">07:30~09:00</div><div class="day-act">등원 및 맞이하기<small>건강상태 확인, 통합보육</small></div></li>
+          <li><div class="day-time">09:00~09:30</div><div class="day-act">오전 간식</div></li>
+          <li><div class="day-time">09:30~10:00</div><div class="day-act">하루 일과 나누기<small>인사 나누기, 오늘의 활동 계획</small></div></li>
+          <li><div class="day-time">10:00~11:30</div><div class="day-act">오전 활동<small>자유선택활동, 누리과정 대·소집단 활동</small></div></li>
+          <li><div class="day-time">11:30~12:30</div><div class="day-act">점심 및 이 닦기</div></li>
+          <li class="key"><div class="day-time">12:30~14:30</div><div class="day-act">바깥놀이 및 특별·특성화 활동<small>날씨와 활동 일정에 따라 운영합니다</small></div></li>
+          <li><div class="day-time">14:30~15:00</div><div class="day-act">휴식 및 정리<small>손 씻기, 컨디션 확인</small></div></li>
+          <li><div class="day-time">15:00~15:30</div><div class="day-act">오후 간식</div></li>
+          <li><div class="day-time">15:30~16:30</div><div class="day-act">오후 놀이 및 활동 마무리</div></li>
+          <li><div class="day-time">16:30~17:30</div><div class="day-act">하루 되돌아보기, 귀가 준비, 하원</div></li>
+          <li><div class="day-time">17:30~19:30</div><div class="day-act">연장보육</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="day-note">
+      <li><strong>만 2세반 특별활동</strong> — 주 2회, 회당 20분 정도로 진행됩니다.</li>
+      <li><strong>운영시간</strong> — 07:30 ~ 19:30이며, 17:30 이후는 연장보육으로 운영됩니다.</li>
+      <li>일과는 계절과 날씨, 아이들의 컨디션에 따라 유연하게 조정될 수 있습니다.</li>
+    </ul>
   </div>
 </section>
 
