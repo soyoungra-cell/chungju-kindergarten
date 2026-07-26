@@ -70,7 +70,7 @@
     }
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 18px;
       list-style: none;
     }
     .nav-links a { white-space: nowrap; }
@@ -522,8 +522,142 @@
     }
     .day-note strong { color: var(--text-dark); font-weight: 700; }
 
+    /* ───── CLASSES ───── */
+    #classes { background: var(--bg-main); }
+    .cls-block + .cls-block { margin-top: 52px; }
+    .cls-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cls-title::before {
+      content: "";
+      width: 5px; height: 20px;
+      border-radius: 3px;
+      background: var(--mint-dark);
+      flex-shrink: 0;
+    }
+    .cls-tablewrap {
+      overflow-x: auto;
+      border: var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      background: var(--white);
+    }
+    .cls-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 420px;
+    }
+    .cls-table th, .cls-table td {
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 15px;
+    }
+    .cls-table thead th {
+      background: var(--mint-light);
+      color: #2F8F6B;
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: 0.3px;
+    }
+    .cls-table tbody tr + tr { border-top: 1px solid rgba(61,44,44,0.06); }
+    .cls-table td:first-child,
+    .cls-table th:first-child { text-align: left; }
+    .cls-table td:first-child {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .cls-table td small {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-top: 3px;
+    }
+    .cls-table td.num { font-weight: 700; color: var(--text-mid); }
+    .cls-table tfoot td {
+      background: var(--cream);
+      font-weight: 800;
+      color: var(--text-dark);
+      border-top: 1.5px solid rgba(61,44,44,0.1);
+    }
+    .cls-staff {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .staff-item {
+      background: var(--white);
+      border: var(--border);
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .staff-item b {
+      display: block;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--mint-dark);
+      line-height: 1.2;
+    }
+    .staff-item b span { font-size: 14px; font-weight: 700; margin-left: 2px; }
+    .staff-item label {
+      display: block;
+      margin-top: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+    .staff-total {
+      margin-top: 16px;
+      text-align: right;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+    .staff-total strong { color: var(--text-dark); font-weight: 800; }
+    .cls-bldg {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .bldg-item {
+      background: var(--white);
+      border: var(--border);
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .bldg-item .ic { font-size: 26px; margin-bottom: 8px; }
+    .bldg-item label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 5px;
+    }
+    .bldg-item span {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .bldg-item span em {
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-left: 4px;
+    }
+
     /* ───── GALLERY ───── */
-    #gallery { background: var(--bg-main); }
+    #gallery { background: var(--white); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -558,7 +692,7 @@
     .gallery-footer { text-align: center; }
 
     /* ───── MAP ───── */
-    #map { background: var(--white); }
+    #map { background: var(--bg-main); }
     .map-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -696,6 +830,13 @@
       .prog-grid  { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
+      .cls-block + .cls-block { margin-top: 40px; }
+      .cls-title { font-size: 18px; }
+      .cls-table th, .cls-table td { padding: 13px 14px; font-size: 14px; }
+      .cls-staff { grid-template-columns: repeat(2, 1fr); }
+      .cls-bldg { grid-template-columns: 1fr; }
+      .staff-total { text-align: left; }
+
       .day-grid { grid-template-columns: 1fr; gap: 22px; }
       .day-list li { grid-template-columns: 92px 1fr; gap: 12px; padding: 12px 18px; }
       .day-time { font-size: 12.5px; }
@@ -736,6 +877,7 @@
       <li><a href="#director">원장 인사말</a></li>
       <li><a href="#program">운영철학</a></li>
       <li><a href="#daily">하루 일과</a></li>
+      <li><a href="#classes">반 구성</a></li>
       <li><a href="#gallery">갤러리</a></li>
       <li><a href="#map">오시는 길</a></li>
       <li><a href="#contact">문의</a></li>
@@ -750,6 +892,7 @@
   <a href="#director" onclick="closeMenu()">원장 인사말</a>
   <a href="#program"  onclick="closeMenu()">운영철학</a>
   <a href="#daily"    onclick="closeMenu()">하루 일과</a>
+  <a href="#classes"  onclick="closeMenu()">반 구성</a>
   <a href="#gallery" onclick="closeMenu()">갤러리</a>
   <a href="#map"     onclick="closeMenu()">오시는 길</a>
   <a href="#contact" onclick="closeMenu()">문의</a>
@@ -925,6 +1068,81 @@
       <li><strong>운영시간</strong> — 07:30 ~ 19:30이며, 17:00 이후는 연장보육으로 운영됩니다.</li>
       <li>일과는 계절과 날씨, 아이들의 컨디션에 따라 유연하게 조정될 수 있습니다.</li>
     </ul>
+  </div>
+</section>
+
+<!-- ══════════════ CLASSES ══════════════ -->
+<section id="classes">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">반 구성</div>
+      <h2>학급과 교직원 현황</h2>
+      <p>만 0세부터 만 5세까지 13학급으로 운영하며, 각 학급마다 담임교사가 함께합니다.</p>
+    </div>
+
+    <!-- 학급 현황 -->
+    <div class="cls-block">
+      <h3 class="cls-title">연령별 학급 현황</h3>
+      <div class="cls-tablewrap">
+        <table class="cls-table">
+          <thead>
+            <tr>
+              <th>연령</th>
+              <th>학급 수</th>
+              <th>원아 수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>만 0세</td><td class="num">3학급</td><td class="num">6명</td></tr>
+            <tr><td>만 1세<small>3살</small></td><td class="num">4학급</td><td class="num">20명</td></tr>
+            <tr><td>만 2세<small>4살</small></td><td class="num">3학급</td><td class="num">20명</td></tr>
+            <tr><td>만 3세<small>5살</small></td><td class="num">1학급</td><td class="num">13명</td></tr>
+            <tr><td>만 4세<small>6살</small></td><td class="num">1학급</td><td class="num">19명</td></tr>
+            <tr><td>만 5세<small>7살</small></td><td class="num">1학급</td><td class="num">21명</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td>합계</td><td>13학급</td><td>99명</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- 교직원 구성 -->
+    <div class="cls-block">
+      <h3 class="cls-title">교직원 구성</h3>
+      <div class="cls-staff">
+        <div class="staff-item"><b>1<span>명</span></b><label>법인대표자</label></div>
+        <div class="staff-item"><b>1<span>명</span></b><label>원장</label></div>
+        <div class="staff-item"><b>13<span>명</span></b><label>담임교사</label></div>
+        <div class="staff-item"><b>2<span>명</span></b><label>보조교사</label></div>
+        <div class="staff-item"><b>2<span>명</span></b><label>연장전담교사</label></div>
+        <div class="staff-item"><b>2<span>명</span></b><label>조리사</label></div>
+        <div class="staff-item"><b>2<span>명</span></b><label>기사</label></div>
+      </div>
+      <div class="staff-total">교직원 합계 <strong>23명</strong></div>
+    </div>
+
+    <!-- 건물 현황 -->
+    <div class="cls-block">
+      <h3 class="cls-title">건물 현황</h3>
+      <div class="cls-bldg">
+        <div class="bldg-item">
+          <div class="ic">🏫</div>
+          <label>건물 형태</label>
+          <span>2층 단독 건물</span>
+        </div>
+        <div class="bldg-item">
+          <div class="ic">📐</div>
+          <label>대지 총면적</label>
+          <span>1,109㎡ <em>약 335평</em></span>
+        </div>
+        <div class="bldg-item">
+          <div class="ic">🏠</div>
+          <label>건물 전용면적</label>
+          <span>692㎡ <em>약 209평</em></span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
