@@ -461,6 +461,75 @@
       letter-spacing: 0;
     }
 
+    /* ───── HISTORY ───── */
+    #history { background: var(--white); }
+    .hist-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hist-wrap::before {
+      content: "";
+      position: absolute;
+      left: 122px; top: 8px; bottom: 10px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--mint-light), var(--mint-dark) 45%, var(--mint-light));
+    }
+    .hist-item {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 36px;
+      position: relative;
+      padding-bottom: 30px;
+    }
+    .hist-item:last-child { padding-bottom: 0; }
+    .hist-year {
+      text-align: right;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--mint-dark);
+      white-space: nowrap;
+      padding-top: 1px;
+      letter-spacing: -0.2px;
+    }
+    .hist-body { position: relative; }
+    .hist-body::before {
+      content: "";
+      position: absolute;
+      left: -27px; top: 4px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--mint-dark);
+    }
+    .hist-body p {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.55;
+    }
+    .hist-body small {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+    .hist-close {
+      margin-top: 40px;
+      text-align: center;
+      padding: 28px 26px;
+      background: var(--mint-light);
+      border-radius: 20px;
+    }
+    .hist-close p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #2F7F62;
+      line-height: 1.75;
+    }
+
     /* ───── PROGRAM ───── */
     #program { background: var(--bg-main); }
     .prog-grid {
@@ -1022,6 +1091,27 @@
       .about-visual { height: 220px; font-size: 64px; order: -1; }
       .about-text h2 { font-size: 28px; }
 
+      .hist-wrap::before { left: 6px; }
+      .hist-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 32px;
+        padding-bottom: 26px;
+      }
+      .hist-year { text-align: left; font-size: 15px; margin-bottom: 4px; }
+      .hist-body::before { display: none; }
+      .hist-item::before {
+        content: "";
+        position: absolute;
+        left: 1px; top: 4px;
+        width: 12px; height: 12px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 3px solid var(--mint-dark);
+      }
+      .hist-close { margin-top: 30px; padding: 22px 20px; }
+      .hist-close p { font-size: 15px; }
+
       .dir-grid { grid-template-columns: 1fr; gap: 34px; }
       .dir-photo img { max-height: 380px; }
       .dir-text h2 { font-size: 28px; margin-bottom: 26px; }
@@ -1090,6 +1180,7 @@
         <ul class="nav-sub">
           <li><a href="#about">어린이집 소개</a></li>
           <li><a href="#director">원장 인사말</a></li>
+          <li><a href="#history">연혁</a></li>
           <li><a href="#program">운영철학</a></li>
         </ul>
       </li>
@@ -1115,6 +1206,7 @@
   <div class="mm-group">원 소개</div>
   <a href="#about"    class="mm-sub" onclick="closeMenu()">어린이집 소개</a>
   <a href="#director" class="mm-sub" onclick="closeMenu()">원장 인사말</a>
+  <a href="#history"  class="mm-sub" onclick="closeMenu()">연혁</a>
   <a href="#program"  class="mm-sub" onclick="closeMenu()">운영철학</a>
 
   <div class="mm-group">원 생활</div>
@@ -1206,6 +1298,81 @@
           <strong><span>원장</span>라소영</strong>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HISTORY ══════════════ -->
+<section id="history">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">연혁</div>
+      <h2>1957년부터<br>이어온 70여 년</h2>
+      <p>충주 지역에서 70여 년 동안 아이들과 함께해 왔습니다.</p>
+    </div>
+
+    <div class="hist-wrap">
+      <div class="hist-item">
+        <div class="hist-year">1957</div>
+        <div class="hist-body">
+          <p>사회복지법인 충주어린이집 설립</p>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">1982</div>
+        <div class="hist-body">
+          <p>새마을유아원 운영</p>
+          <small>정부 보육정책에 따라 운영 체계를 전환</small>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">1990</div>
+        <div class="hist-body">
+          <p>어린이집 체계로 전환 시작</p>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">1991 ~ 1993</div>
+        <div class="hist-body">
+          <p>충주어린이집으로 전환</p>
+          <small>「영유아보육법」 시행에 따라 전환</small>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">2005</div>
+        <div class="hist-body">
+          <p>평가인증 시범운영시설 참여</p>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">2006</div>
+        <div class="hist-body">
+          <p>달천동에서 호암동으로 이전</p>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">2009 ~ 현재</div>
+        <div class="hist-body">
+          <p>충북육아종합지원센터 평가인증 컨설팅기관</p>
+        </div>
+      </div>
+
+      <div class="hist-item">
+        <div class="hist-year">2023 ~ 현재</div>
+        <div class="hist-body">
+          <p>충주시육아종합지원센터 보육과정 컨설팅기관</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hist-close">
+      <p>70여 년의 교육철학을 이어가는<br>사회복지법인 충주어린이집</p>
     </div>
   </div>
 </section>
