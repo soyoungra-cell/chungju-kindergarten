@@ -714,6 +714,64 @@
     .g6 { background: linear-gradient(135deg, var(--mint-light),    var(--lavender-light)); }
     .gallery-footer { text-align: center; }
 
+    /* ───── SAFETY ───── */
+    #safety { background: var(--bg-main); }
+    .safe-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .safe-card {
+      background: var(--white);
+      border: var(--border);
+      border-radius: 22px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow-sm);
+    }
+    .safe-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .safe-ico {
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .safe-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.2px;
+    }
+    .s1 .safe-ico { background: var(--mint-light); }
+    .s2 .safe-ico { background: var(--sky-light); }
+    .s3 .safe-ico { background: var(--peach-light); }
+    .s4 .safe-ico { background: var(--lavender-light); }
+    .safe-list { list-style: none; }
+    .safe-list li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      padding-left: 22px;
+      position: relative;
+    }
+    .safe-list li + li { margin-top: 10px; }
+    .safe-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0; top: 0;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--mint-dark);
+    }
+    .safe-list li strong { color: var(--text-dark); font-weight: 700; }
+
     /* ───── ADMISSION ───── */
     #admission {
       background: linear-gradient(170deg, #F3FBF7 0%, var(--white) 58%, #F5FBF8 100%);
