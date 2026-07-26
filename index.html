@@ -607,6 +607,57 @@
     .prog-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
     .prog-card p  { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
 
+    /* ───── FEATURED PROGRAMS ───── */
+    #programs {
+      background: linear-gradient(170deg, #FFFCF4 0%, var(--white) 58%, #FFFBF2 100%);
+    }
+    .feat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+    }
+    .feat-card {
+      flex: 0 1 calc((100% - 44px) / 3);
+      min-width: 258px;
+      background: var(--white);
+      border: var(--border);
+      border-radius: 22px;
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      transition: all .2s;
+    }
+    .feat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .feat-ico {
+      width: 52px; height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+    .feat-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 9px;
+      letter-spacing: -0.2px;
+    }
+    .feat-card p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .f1 .feat-ico { background: var(--mint-light); }
+    .f2 .feat-ico { background: var(--peach-light); }
+    .f3 .feat-ico { background: var(--sky-light); }
+    .f4 .feat-ico { background: #EDF6E0; }
+    .f5 .feat-ico { background: var(--lavender-light); }
+
     /* ───── DAILY SCHEDULE ───── */
     #daily { background: var(--white); }
     .day-grid {
@@ -1188,6 +1239,9 @@
       .cls-bldg { grid-template-columns: 1fr; }
       .staff-total { text-align: left; }
 
+      .feat-card { flex: 1 1 100%; padding: 24px 22px; }
+      .feat-grid { gap: 16px; }
+
       .day-grid { grid-template-columns: 1fr; gap: 22px; }
       .day-list li { grid-template-columns: 92px 1fr; gap: 12px; padding: 12px 18px; }
       .day-time { font-size: 12.5px; }
@@ -1236,6 +1290,7 @@
       <li class="has-sub">
         <a href="#daily">원 생활<span class="caret">▾</span></a>
         <ul class="nav-sub">
+          <li><a href="#programs">특색 프로그램</a></li>
           <li><a href="#daily">하루 일과</a></li>
           <li><a href="#classes">반 구성</a></li>
           <li><a href="#safety">안전·위생</a></li>
@@ -1259,6 +1314,7 @@
   <a href="#program"  class="mm-sub" onclick="closeMenu()">운영철학</a>
 
   <div class="mm-group">원 생활</div>
+  <a href="#programs" class="mm-sub" onclick="closeMenu()">특색 프로그램</a>
   <a href="#daily"   class="mm-sub" onclick="closeMenu()">하루 일과</a>
   <a href="#classes" class="mm-sub" onclick="closeMenu()">반 구성</a>
   <a href="#safety"  class="mm-sub" onclick="closeMenu()">안전·위생</a>
@@ -1457,6 +1513,49 @@
         <div class="prog-tag" style="background:var(--peach-light);color:var(--peach-dark);">보람있는 교직원</div>
         <h3>교직원이 행복해야 아이도 행복해요</h3>
         <p>전문성과 열정을 발휘하며 서로 존중하고 함께 성장하는 보람 있는 교직문화를 만들어가요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURED PROGRAMS ══════════════ -->
+<section id="programs">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">특색 프로그램</div>
+      <h2>우리 원의<br>특색 프로그램</h2>
+      <p>아이의 발달 시기에 맞춰 다섯 가지 프로그램을 운영합니다.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-card f1">
+        <div class="feat-ico">📖</div>
+        <h3>문해력 프로그램</h3>
+        <p>그림책과 이야기 나누기를 통해 듣고 말하고 읽는 힘을 차근차근 기릅니다.</p>
+      </div>
+
+      <div class="feat-card f2">
+        <div class="feat-ico">💛</div>
+        <h3>사회정서 프로그램</h3>
+        <p>자기 감정을 알아차리고 표현하며, 친구와 어울리는 법을 배웁니다.</p>
+      </div>
+
+      <div class="feat-card f3">
+        <div class="feat-ico">🖐</div>
+        <h3>영아반 오감놀이</h3>
+        <p>만지고 보고 듣고 맡으며, 온몸의 감각으로 세상을 탐색합니다.</p>
+      </div>
+
+      <div class="feat-card f4">
+        <div class="feat-ico">🌿</div>
+        <h3>생태 프로그램</h3>
+        <p>텃밭과 자연물을 직접 만나며 계절의 변화를 몸으로 경험합니다.</p>
+      </div>
+
+      <div class="feat-card f5">
+        <div class="feat-ico">🎒</div>
+        <h3>유초 이음교육</h3>
+        <p>초등학교 생활을 미리 경험하며 자연스럽게 적응을 준비합니다.</p>
       </div>
     </div>
   </div>
