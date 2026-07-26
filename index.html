@@ -519,14 +519,14 @@
     .day-a .key .day-time { color: #3AA47D; }
     .day-b .key { background: #F1F8FF; }
     .day-b .key .day-time { color: var(--sky-dark); }
-    .day-note, .adm-note {
+    .day-note, .adm-note, .safe-note {
       margin-top: 28px;
       background: var(--cream);
       border: var(--border);
       border-radius: 18px;
       padding: 22px 26px;
     }
-    .day-note li, .adm-note li {
+    .day-note li, .adm-note li, .safe-note li {
       list-style: none;
       font-size: 14px;
       color: var(--text-mid);
@@ -534,8 +534,8 @@
       padding-left: 16px;
       position: relative;
     }
-    .day-note li + li, .adm-note li + li { margin-top: 8px; }
-    .day-note li::before, .adm-note li::before {
+    .day-note li + li, .adm-note li + li, .safe-note li + li { margin-top: 8px; }
+    .day-note li::before, .adm-note li::before, .safe-note li::before {
       content: "";
       position: absolute;
       left: 0; top: 10px;
@@ -543,7 +543,7 @@
       border-radius: 50%;
       background: var(--mint-dark);
     }
-    .day-note strong, .adm-note strong { color: var(--text-dark); font-weight: 700; }
+    .day-note strong, .adm-note strong, .safe-note strong { color: var(--text-dark); font-weight: 700; }
 
     /* ───── CLASSES ───── */
     #classes { background: var(--bg-main); }
@@ -980,6 +980,10 @@
       .prog-grid  { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
+      .safe-grid { grid-template-columns: 1fr; gap: 16px; }
+      .safe-card { padding: 24px 22px; }
+      .safe-note { padding: 18px 20px; }
+
       .adm-steps { grid-template-columns: 1fr; gap: 14px; margin-bottom: 28px; }
       .adm-step { padding: 22px 20px; }
       .adm-cta { padding: 28px 20px; }
@@ -1037,6 +1041,7 @@
       <li><a href="#daily">하루 일과</a></li>
       <li><a href="#classes">반 구성</a></li>
       <li><a href="#gallery">갤러리</a></li>
+      <li><a href="#safety">안전·위생</a></li>
       <li><a href="#admission">입소 안내</a></li>
       <li><a href="#map">오시는 길</a></li>
       <li><a href="#contact">문의</a></li>
@@ -1053,6 +1058,7 @@
   <a href="#daily"    onclick="closeMenu()">하루 일과</a>
   <a href="#classes"  onclick="closeMenu()">반 구성</a>
   <a href="#gallery"   onclick="closeMenu()">갤러리</a>
+  <a href="#safety"    onclick="closeMenu()">안전·위생</a>
   <a href="#admission" onclick="closeMenu()">입소 안내</a>
   <a href="#map"       onclick="closeMenu()">오시는 길</a>
   <a href="#contact" onclick="closeMenu()">문의</a>
@@ -1325,6 +1331,80 @@
     <div class="gallery-footer">
       <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램에서 더 보기</a>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════ SAFETY ══════════════ -->
+<section id="safety">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">안전 · 위생</div>
+      <h2>아이가 안전하게<br>지내는 곳</h2>
+      <p>아이들이 하루를 보내는 공간입니다. 안전과 위생을 꼼꼼하게 관리합니다.</p>
+    </div>
+
+    <div class="safe-grid">
+      <div class="safe-card s1">
+        <div class="safe-head">
+          <div class="safe-ico">🎥</div>
+          <h3>안전 관리</h3>
+        </div>
+        <ul class="safe-list">
+          <li>CCTV 설치 및 운영</li>
+          <li>매월 <strong>비상대피훈련</strong> 실시</li>
+          <li>소방·전기·가스 정기 안전점검</li>
+          <li>어린이집 안전공제회 가입</li>
+          <li>교직원 응급처치·심폐소생술 교육</li>
+        </ul>
+      </div>
+
+      <div class="safe-card s2">
+        <div class="safe-head">
+          <div class="safe-ico">🧼</div>
+          <h3>위생·건강 관리</h3>
+        </div>
+        <ul class="safe-list">
+          <li>매일 실내 소독 및 환기</li>
+          <li>정기 방역 및 실내공기질 관리</li>
+          <li>등원 시 아이 <strong>건강상태 확인</strong></li>
+          <li>놀이감·침구 정기 세척 및 소독</li>
+          <li>감염병 예방 수칙 준수</li>
+        </ul>
+      </div>
+
+      <div class="safe-card s3">
+        <div class="safe-head">
+          <div class="safe-ico">🍚</div>
+          <h3>급식·간식</h3>
+        </div>
+        <ul class="safe-list">
+          <li>조리사 2명이 <strong>원에서 직접 조리</strong></li>
+          <li>연령별 맞춤 식단 구성</li>
+          <li>식재료 검수 및 보관 관리</li>
+          <li>조리실 위생 점검</li>
+          <li>알레르기 아동 개별 관리</li>
+        </ul>
+      </div>
+
+      <div class="safe-card s4">
+        <div class="safe-head">
+          <div class="safe-ico">🚌</div>
+          <h3>통학차량</h3>
+        </div>
+        <ul class="safe-list">
+          <li>어린이 통학버스 신고 차량 운행</li>
+          <li><strong>동승 보호자</strong> 탑승</li>
+          <li>승하차 확인 장치 운영</li>
+          <li>운전자·동승자 정기 안전교육</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="safe-note">
+      <li>모든 교직원은 <strong>아동학대 예방 교육</strong>과 안전교육을 정기적으로 이수합니다.</li>
+      <li>시설·급식·차량 안전 점검은 관련 법령에 따라 정기적으로 실시됩니다.</li>
+      <li>궁금한 점이 있으시면 언제든 방문하셔서 직접 확인하실 수 있습니다.</li>
+    </ul>
   </div>
 </section>
 
