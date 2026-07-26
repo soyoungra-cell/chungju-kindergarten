@@ -631,14 +631,21 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
-    .feat-ico {
-      width: 52px; height: 52px;
+    .feat-photo {
+      width: 100%;
+      height: 178px;
+      object-fit: cover;
       border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      margin-bottom: 16px;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .feat-tag {
+      display: inline-block;
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 11px;
     }
     .feat-card h3 {
       font-size: 17px;
@@ -673,12 +680,12 @@
       color: var(--text-light);
       line-height: 1.65;
     }
-    .f1 .feat-ico { background: var(--mint-light); }
-    .f2 .feat-ico { background: var(--peach-light); }
-    .f3 .feat-ico { background: var(--sky-light); }
-    .f4 .feat-ico { background: #EDF6E0; }
-    .f5 .feat-ico { background: var(--lavender-light); }
-    .f6 .feat-ico { background: var(--cream); }
+    .f1 .feat-tag { background: var(--mint-light);     color: #2F8F6B; }
+    .f2 .feat-tag { background: var(--peach-light);    color: var(--peach-dark); }
+    .f3 .feat-tag { background: var(--sky-light);      color: var(--sky-dark); }
+    .f4 .feat-tag { background: #EDF6E0;               color: #4E7A19; }
+    .f5 .feat-tag { background: var(--lavender-light); color: var(--lavender-dark); }
+    .f6 .feat-tag { background: var(--cream);          color: #9A7B18; }
 
     /* ───── DAILY SCHEDULE ───── */
     #daily { background: var(--white); }
@@ -1551,37 +1558,43 @@
 
     <div class="feat-grid">
       <div class="feat-card f1">
-        <div class="feat-ico">📖</div>
+        <img class="feat-photo" src="images/p-literacy.jpg" alt="아이가 직접 쓴 글씨와 그림으로 표현한 놀이 장면">
+        <div class="feat-tag">📖 그림책</div>
         <h3>문해력 프로그램</h3>
         <p>그림책을 매개로 질문하고 생각을 나누며 아이들이 스스로 이해하고 그림과 글로 표현하는 힘을 키웁니다. 읽고, 생각하고, 말하는 즐거운 경험이 튼튼한 문해력의 기초가 됩니다.</p>
       </div>
 
       <div class="feat-card f2">
-        <div class="feat-ico">💛</div>
+        <img class="feat-photo" src="images/p-social.jpg" alt="바깥에서 낙엽을 들고 함께 놀이하는 아이들">
+        <div class="feat-tag">💛 관계</div>
         <h3>초등연계 K-사회정서학습</h3>
         <p>아이들은 놀이와 경험을 통해 스스로를 이해하고, 타인을 존중하며 더 나은 관계를 만들어 가는 힘을 키워갑니다.</p>
       </div>
 
       <div class="feat-card f3">
-        <div class="feat-ico">🥕</div>
+        <img class="feat-photo" src="images/p-senses.jpg" alt="식재료를 직접 만지며 탐색하는 영아">
+        <div class="feat-tag">🥕 식습관</div>
         <h3>식습관 향상을 위한 오감놀이</h3>
         <p>영아들이 식재료를 직접 보고, 만지고, 냄새 맡고, 맛보며 오감을 통해 탐색하는 즐거운 경험으로 바른 식습관과 건강한 성장을 이룹니다.</p>
       </div>
 
       <div class="feat-card f4">
-        <div class="feat-ico">🌿</div>
+        <img class="feat-photo" src="images/p-eco.jpg" alt="텃밭에서 직접 방울토마토를 살펴보는 아이">
+        <div class="feat-tag">🌿 자연</div>
         <h3>생태체험활동</h3>
         <p>자연을 보고, 만지고, 느끼며 생명의 소중함을 배워요. 텃밭과 전용 농장에서 계절마다 다양한 생태체험을 경험합니다.</p>
       </div>
 
       <div class="feat-card f5">
-        <div class="feat-ico">🤝</div>
+        <img class="feat-photo" src="images/p-bridge.jpg" alt="초등학교 교실을 미리 방문해 수업을 경험하는 아이들">
+        <div class="feat-tag">🤝 연계</div>
         <h3>영유 · 유초 이음교육</h3>
         <p>영아가 유아반의 놀이나 전시에 초대되어 함께 놀이하며 정서적 안정을 이루며 유아반에 진급합니다. 유아반은 초등학교 생활을 미리 경험하며 자연스럽게 적응을 준비합니다.</p>
       </div>
 
       <div class="feat-card f6">
-        <div class="feat-ico">✨</div>
+        <img class="feat-photo" src="images/p-special.jpg" alt="치아 건강을 주제로 진행되는 특성화 프로그램 활동">
+        <div class="feat-tag">✨ 특성화</div>
         <h3>특별 · 특성화 프로그램</h3>
         <p>아이들의 흥미와 잠재력을 키우는 다양하고 특별한 경험으로 더 큰 성장과 빛나는 미래를 준비합니다.</p>
         <div class="feat-tags">
