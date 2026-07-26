@@ -1212,6 +1212,31 @@
     .footer-icons a:hover { background: rgba(255,255,255,.2); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,.3); }
 
+    /* ───── BACKGROUND MUSIC ───── */
+    .music-btn {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1.5px solid rgba(61,44,44,0.10);
+      box-shadow: 0 4px 18px rgba(61,44,44,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      cursor: pointer;
+      z-index: 900;
+      padding: 0;
+      transition: transform .18s, background .18s, border-color .18s;
+    }
+    .music-btn:hover { transform: scale(1.07); }
+    .music-btn:active { transform: scale(.96); }
+    .music-btn.on {
+      background: var(--mint-light);
+      border-color: var(--mint);
+    }
+
     /* ───── RESPONSIVE ───── */
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
@@ -1275,6 +1300,8 @@
       .adm-btns { flex-direction: column; }
       .adm-btns .btn { width: 100%; justify-content: center; }
       .adm-note { padding: 18px 20px; }
+
+      .music-btn { right: 14px; bottom: 14px; width: 48px; height: 48px; font-size: 19px; }
 
       .cls-block + .cls-block { margin-top: 40px; }
       .cls-title { font-size: 18px; }
@@ -1625,7 +1652,8 @@
       <div class="feat-card f6">
         <img class="feat-photo" src="images/p-special.jpg" alt="영어 특별활동에 참여하는 아이들">
         <div class="feat-meta">
-          <span class="feat-tag">✨ 특성화</span>
+          <span class="feat-tag">✨ 특별 · 특성화</span>
+          <span class="feat-age">만 1세 ~ 만 5세</span>
         </div>
         <h3>특별 · 특성화 프로그램</h3>
         <p>아이들의 흥미와 잠재력을 키우는 다양하고 특별한 경험으로 더 큰 성장과 빛나는 미래를 준비합니다.</p>
@@ -2012,7 +2040,39 @@
   <div class="footer-copy">© 2025 사회복지법인 충주어린이집. All rights reserved.</div>
 </footer>
 
+<!-- ══════════════ 배경음악 ══════════════ -->
+<audio id="bgm" src="audio/bgm.mp3" loop preload="metadata"></audio>
+<button class="music-btn" id="musicBtn" type="button" onclick="toggleMusic()" aria-label="배경음악 켜기" title="배경음악 켜기">🔇</button>
+
 <script>
+  var bgm = document.getElementById('bgm');
+  var musicBtn = document.getElementById('musicBtn');
+  bgm.volume = 0.35;
+
+  function setMusicUI(playing) {
+    musicBtn.textContent = playing ? '🔊' : '🔇';
+    musicBtn.classList.toggle('on', playing);
+    var label = playing ? '배경음악 끄기' : '배경음악 켜기';
+    musicBtn.setAttribute('aria-label', label);
+    musicBtn.setAttribute('title', label);
+  }
+  function toggleMusic() {
+    if (bgm.paused) {
+      var p = bgm.play();
+      if (p && p.catch) { p.catch(function () { setMusicUI(false); }); }
+    } else {
+      bgm.pause();
+    }
+  }
+  bgm.addEventListener('play',  function () { setMusicUI(true); });
+  bgm.addEventListener('pause', function () { setMusicUI(false); });
+
+  // 자동재생을 시도하되, 브라우저가 막으면 버튼으로 켤 수 있게 둡니다.
+  window.addEventListener('load', function () {
+    var p = bgm.play();
+    if (p && p.catch) { p.catch(function () {}); }
+  });
+
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
