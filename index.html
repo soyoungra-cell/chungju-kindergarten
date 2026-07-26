@@ -58,6 +58,35 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ───── ICONS ───── */
+    .ico {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: -0.14em;
+      flex-shrink: 0;
+    }
+    /* 글자와 나란히 놓일 때 */
+    .btn .ico,
+    .nav-cta .ico,
+    .feat-tag .ico,
+    .mobile-menu a .ico,
+    .nav-logo .ico,
+    .footer-name .ico,
+    .hero-badge .ico,
+    .map-row a .ico {
+      font-size: 1.15em;
+      margin-right: 6px;
+    }
+    .feat-tag .ico { font-size: 1.25em; margin-right: 4px; }
+    .footer-icons .ico { font-size: 19px; margin: 0; }
+    .music-btn .ico { font-size: 23px; stroke-width: 1.9; }
     html { scroll-behavior: smooth; }
 
     body {
@@ -1333,10 +1362,38 @@
 </head>
 <body>
 
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs>
+<g id="i-leaf"><path d="M12 21v-8"/><path d="M12 13c0-3 2-5 5-5 0 3-2 5-5 5Z"/><path d="M12 13c0-3-2-5-5-5 0 3 2 5 5 5Z"/></g>
+<g id="i-chat"><rect x="3" y="4" width="18" height="14" rx="4"/><circle cx="8.5" cy="11" r="1"/><circle cx="12" cy="11" r="1"/><circle cx="15.5" cy="11" r="1"/></g>
+<g id="i-insta"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></g>
+<g id="i-phone"><rect x="6" y="2" width="12" height="20" rx="3"/><circle cx="12" cy="18" r="1"/></g>
+<g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g>
+<g id="i-pin"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></g>
+<g id="i-person"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></g>
+<g id="i-book"><path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4Z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6Z"/></g>
+<g id="i-heart"><path d="M12 21C6 16.5 3 13 3 9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 9 2.5C21 13 18 16.5 12 21Z"/></g>
+<g id="i-apple"><path d="M12 7c-4 0-6 3-6 7s3 7 6 7 6-3 6-7-2-7-6-7Z"/><path d="M12 7V4"/><path d="M12 5c2-2 4-2 4-2"/></g>
+<g id="i-tree"><circle cx="12" cy="9" r="6"/><path d="M12 15v7"/></g>
+<g id="i-link"><path d="M9 15l6-6"/><path d="M11 7l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 17l-1 1a4 4 0 0 1-6-6l1-1"/></g>
+<g id="i-spark"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2Z"/></g>
+<g id="i-cam"><rect x="2" y="7" width="14" height="10" rx="2"/><path d="M16 11l6-3v8l-6-3Z"/></g>
+<g id="i-drop"><path d="M12 22a6 6 0 0 0 6-6c0-4-6-13-6-13S6 12 6 16a6 6 0 0 0 6 6Z"/></g>
+<g id="i-bowl"><path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M10 7c0-1 .5-1.5.5-2.5"/><path d="M14 7c0-1 .5-1.5.5-2.5"/></g>
+<g id="i-bus"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M3 11h18"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></g>
+<g id="i-extlink"><path d="M15 3h6v6"/><path d="M21 3l-9 9"/><path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></g>
+<g id="i-map"><path d="M9 4 3 6v15l6-2 6 2 6-2V4l-6 2Z"/><path d="M9 4v15"/><path d="M15 6v15"/></g>
+<g id="i-building"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></g>
+<g id="i-ruler"><rect x="2" y="9" width="20" height="6" rx="1"/><path d="M7 9v3"/><path d="M12 9v3"/><path d="M17 9v3"/></g>
+<g id="i-home"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M9 21v-7h6v7"/></g>
+<g id="i-volon"><path d="M11 5 6 9H3v6h3l5 4Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6.5a8 8 0 0 1 0 11"/></g>
+<g id="i-voloff"><path d="M11 5 6 9H3v6h3l5 4Z"/><path d="M17 9l4 6"/><path d="M21 9l-4 6"/></g>
+<g id="i-flower"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="7" r="2.8"/><circle cx="12" cy="17" r="2.8"/><circle cx="7" cy="12" r="2.8"/><circle cx="17" cy="12" r="2.8"/></g>
+<g id="i-menu"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></g>
+</defs></svg>
 <!-- ══════════════ NAV ══════════════ -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">🌱 충주어린이집</a>
+    <a href="#" class="nav-logo"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg>충주어린이집</a>
     <ul class="nav-links">
       <li class="has-sub">
         <a href="#about">원 소개<span class="caret">▾</span></a>
@@ -1361,8 +1418,8 @@
       <li><a href="#map">오시는 길</a></li>
       <li><a href="#contact">문의</a></li>
     </ul>
-    <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="nav-cta">💬 카카오톡 문의</a>
-    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="메뉴">☰</button>
+    <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="nav-cta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>카카오톡 문의</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="메뉴"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-menu"/></svg></button>
   </div>
 </nav>
 
@@ -1385,18 +1442,18 @@
   <a href="#map"       class="mm-sub" onclick="closeMenu()">오시는 길</a>
   <a href="#contact"   class="mm-sub" onclick="closeMenu()">문의</a>
 
-  <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" onclick="closeMenu()">💬 카카오톡 문의</a>
+  <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" onclick="closeMenu()"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>카카오톡 문의</a>
 </div>
 
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">🌸 충북 충주어린이집</div>
+    <div class="hero-badge"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-flower"/></svg>충북 충주어린이집</div>
     <h1>아이들의<br><em>행복한 첫 번째 세상</em></h1>
     <p>사랑과 배움이 가득한 충주어린이집에서<br>우리 아이의 무한한 가능성을 함께 발견해요.</p>
     <div class="hero-btns">
-      <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="btn btn-kakao">💬 카카오톡으로 문의하기</a>
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램 보기</a>
+      <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="btn btn-kakao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>카카오톡으로 문의하기</a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램 보기</a>
     </div>
   </div>
 </section>
@@ -1414,22 +1471,22 @@
         <p>0세부터 7세까지 분절없는 체계적인 교육으로 정서적으로 안정적인 성장을 이룹니다. 전문 교사진과 함께 아이들의 개성과 창의성을 존중하는 교육을 실천하고 있습니다.</p>
         <div class="info-grid">
           <div class="info-card">
-            <div class="ic">🕐</div>
+            <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></div>
             <label>운영 시간</label>
             <span>07:30 ~ 19:30</span>
           </div>
           <div class="info-card">
-            <div class="ic">🎂</div>
+            <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg></div>
             <label>대상 연령</label>
             <span>0세 ~ 7세</span>
           </div>
           <div class="info-card">
-            <div class="ic">📍</div>
+            <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></div>
             <label>위치</label>
             <span><a href="https://www.google.com/maps/search/?api=1&query=36.9543948%2C127.9387666" target="_blank" rel="noopener">충북 충주시 원호암4길 12</a></span>
           </div>
           <div class="info-card">
-            <div class="ic">📞</div>
+            <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></div>
             <label>전화</label>
             <span><a href="tel:043-852-2493">043-852-2493</a></span>
           </div>
@@ -1591,7 +1648,7 @@
       <div class="feat-card f1">
         <img class="feat-photo" src="images/p-literacy.jpg" alt="아이가 직접 쓴 글씨와 그림으로 표현한 놀이 장면">
         <div class="feat-meta">
-          <span class="feat-tag">📖 그림책</span>
+          <span class="feat-tag"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg>그림책</span>
           <span class="feat-age">만 0세 ~ 만 5세</span>
         </div>
         <h3>문해력 프로그램</h3>
@@ -1601,7 +1658,7 @@
       <div class="feat-card f2">
         <img class="feat-photo" src="images/p-social.jpg" alt="바깥에서 낙엽을 들고 함께 놀이하는 아이들">
         <div class="feat-meta">
-          <span class="feat-tag">💛 관계</span>
+          <span class="feat-tag"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg>관계</span>
           <span class="feat-age">만 1세 ~ 만 5세</span>
         </div>
         <h3>초등연계 K-사회정서학습</h3>
@@ -1611,7 +1668,7 @@
       <div class="feat-card f3">
         <img class="feat-photo" src="images/p-senses.jpg" alt="식재료를 직접 만지며 탐색하는 영아">
         <div class="feat-meta">
-          <span class="feat-tag">🥕 식습관</span>
+          <span class="feat-tag"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-apple"/></svg>식습관</span>
           <span class="feat-age">만 0세 ~ 만 2세</span>
         </div>
         <h3>식습관 향상을 위한 오감놀이</h3>
@@ -1621,7 +1678,7 @@
       <div class="feat-card f4">
         <img class="feat-photo" src="images/p-eco.jpg" alt="텃밭에서 직접 방울토마토를 살펴보는 아이">
         <div class="feat-meta">
-          <span class="feat-tag">🌿 자연</span>
+          <span class="feat-tag"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tree"/></svg>자연</span>
           <span class="feat-age">만 0세 ~ 만 5세</span>
         </div>
         <h3>생태체험활동</h3>
@@ -1631,7 +1688,7 @@
       <div class="feat-card f5">
         <img class="feat-photo" src="images/p-bridge.jpg" alt="초등학교 교실을 미리 방문해 수업을 경험하는 아이들">
         <div class="feat-meta">
-          <span class="feat-tag">🤝 연계</span>
+          <span class="feat-tag"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-link"/></svg>연계</span>
           <span class="feat-age">만 2세 · 만 5세</span>
         </div>
         <h3>영유 · 유초 이음교육</h3>
@@ -1641,7 +1698,7 @@
       <div class="feat-card f6">
         <img class="feat-photo" src="images/p-special.jpg" alt="영어 특별활동에 참여하는 아이들">
         <div class="feat-meta">
-          <span class="feat-tag">✨ 배움 확장</span>
+          <span class="feat-tag"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-spark"/></svg>배움 확장</span>
           <span class="feat-age">만 1세 ~ 만 5세</span>
         </div>
         <h3>특별 · 특성화 프로그램</h3>
@@ -1779,17 +1836,17 @@
       <h3 class="cls-title">건물 현황</h3>
       <div class="cls-bldg">
         <div class="bldg-item">
-          <div class="ic">🏫</div>
+          <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-building"/></svg></div>
           <label>건물 형태</label>
           <span>2층 단독 건물</span>
         </div>
         <div class="bldg-item">
-          <div class="ic">📐</div>
+          <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ruler"/></svg></div>
           <label>대지 총면적</label>
           <span>1,109㎡ <em>약 335평</em></span>
         </div>
         <div class="bldg-item">
-          <div class="ic">🏠</div>
+          <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-home"/></svg></div>
           <label>건물 전용면적</label>
           <span>692㎡ <em>약 209평</em></span>
         </div>
@@ -1815,7 +1872,7 @@
       <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery6.jpg" alt="갤러리 사진 6"></a>
     </div>
     <div class="gallery-footer">
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램에서 더 보기</a>
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램에서 더 보기</a>
     </div>
   </div>
 </section>
@@ -1832,7 +1889,7 @@
     <div class="safe-grid">
       <div class="safe-card s1">
         <div class="safe-head">
-          <div class="safe-ico">🎥</div>
+          <div class="safe-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cam"/></svg></div>
           <h3>안전 관리</h3>
         </div>
         <ul class="safe-list">
@@ -1846,7 +1903,7 @@
 
       <div class="safe-card s2">
         <div class="safe-head">
-          <div class="safe-ico">🧼</div>
+          <div class="safe-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-drop"/></svg></div>
           <h3>위생·건강 관리</h3>
         </div>
         <ul class="safe-list">
@@ -1860,7 +1917,7 @@
 
       <div class="safe-card s3">
         <div class="safe-head">
-          <div class="safe-ico">🍚</div>
+          <div class="safe-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bowl"/></svg></div>
           <h3>급식·간식</h3>
         </div>
         <ul class="safe-list">
@@ -1874,7 +1931,7 @@
 
       <div class="safe-card s4">
         <div class="safe-head">
-          <div class="safe-ico">🚌</div>
+          <div class="safe-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bus"/></svg></div>
           <h3>통학차량</h3>
         </div>
         <ul class="safe-list">
@@ -1930,9 +1987,9 @@
       <h3>입소 대기 신청하기</h3>
       <p>아이사랑 포털에서 온라인으로 신청하실 수 있습니다.<br>신청 전에 궁금한 점이 있으시면 편하게 문의해 주세요.</p>
       <div class="adm-btns">
-        <a href="https://www.childcare.go.kr" target="_blank" rel="noopener" class="btn btn-isarang">🖥 아이사랑 포털 바로가기</a>
-        <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" rel="noopener" class="btn btn-kakao">💬 카카오톡 문의</a>
-        <a href="tel:043-852-2493" class="btn btn-phone">📞 043-852-2493</a>
+        <a href="https://www.childcare.go.kr" target="_blank" rel="noopener" class="btn btn-isarang"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-extlink"/></svg>아이사랑 포털 바로가기</a>
+        <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" rel="noopener" class="btn btn-kakao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>카카오톡 문의</a>
+        <a href="tel:043-852-2493" class="btn btn-phone"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>043-852-2493</a>
       </div>
     </div>
 
@@ -1955,36 +2012,36 @@
     <div class="map-layout">
       <div class="map-details">
         <div class="map-row">
-          <span class="mi">📍</span>
+          <span class="mi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
           <div>
             <label>주소</label>
             <p>충북 충주시 원호암4길 12</p>
           </div>
         </div>
         <div class="map-row">
-          <span class="mi">📞</span>
+          <span class="mi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span>
           <div>
             <label>전화번호</label>
             <p><a href="tel:043-852-2493">043-852-2493</a></p>
           </div>
         </div>
         <div class="map-row">
-          <span class="mi">🕐</span>
+          <span class="mi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></span>
           <div>
             <label>운영 시간</label>
             <p>월 ~ 금 &nbsp; 07:30 ~ 19:30</p>
           </div>
         </div>
         <div class="map-row">
-          <span class="mi">💬</span>
+          <span class="mi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span>
           <div>
             <label>온라인 문의</label>
             <p><a href="https://open.kakao.com/o/sqMRm9tf" target="_blank">카카오톡 오픈채팅으로 문의하기 →</a></p>
           </div>
         </div>
         <div class="map-btn-row">
-          <a href="https://map.kakao.com/link/map/충주어린이집,36.9543948,127.9387666" target="_blank" rel="noopener" class="btn btn-kakao">🗺 카카오맵 보기</a>
-          <a href="https://map.naver.com/v5/search/충북 충주시 원호암4길 12" target="_blank" class="btn btn-naver">🗺 네이버지도 보기</a>
+          <a href="https://map.kakao.com/link/map/충주어린이집,36.9543948,127.9387666" target="_blank" rel="noopener" class="btn btn-kakao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-map"/></svg>카카오맵 보기</a>
+          <a href="https://map.naver.com/v5/search/충북 충주시 원호암4길 12" target="_blank" class="btn btn-naver"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-map"/></svg>네이버지도 보기</a>
         </div>
       </div>
 
@@ -2006,11 +2063,11 @@
     <div class="cta-box">
       <div class="badge">문의하기</div>
       <h2>입학 문의가 있으신가요?</h2>
-      <p>카카오톡으로 편하게 문의해 주세요!<br>빠르고 친절하게 답변드릴게요. 🌸</p>
+      <p>카카오톡으로 편하게 문의해 주세요!<br>빠르고 친절하게 답변드릴게요.</p>
       <div class="cta-btns">
-        <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="btn btn-kakao">💬 카카오톡으로 문의</a>
-        <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta">📸 인스타그램 DM</a>
-        <a href="tel:043-852-2493" class="btn btn-phone">📞 전화 문의</a>
+        <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" class="btn btn-kakao"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>카카오톡으로 문의</a>
+        <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램 DM</a>
+        <a href="tel:043-852-2493" class="btn btn-phone"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>전화 문의</a>
       </div>
     </div>
   </div>
@@ -2018,22 +2075,22 @@
 
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
-  <div class="footer-name">🌱 사회복지법인 충주어린이집</div>
+  <div class="footer-name"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg>사회복지법인 충주어린이집</div>
   <div class="footer-info">
     충북 충주시 원호암4길 12<br>
     전화: 043-852-2493
   </div>
   <div class="footer-icons">
-    <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" title="인스타그램">📸</a>
-    <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" title="카카오톡">💬</a>
-    <a href="tel:043-852-2493" title="전화">📞</a>
+    <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" title="인스타그램"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg></a>
+    <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" title="카카오톡"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></a>
+    <a href="tel:043-852-2493" title="전화"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></a>
   </div>
   <div class="footer-copy">© 2025 사회복지법인 충주어린이집. All rights reserved.</div>
 </footer>
 
 <!-- ══════════════ 배경음악 ══════════════ -->
 <audio id="bgm" src="audio/bgm.mp3" loop preload="metadata"></audio>
-<button class="music-btn" id="musicBtn" type="button" onclick="toggleMusic()" aria-label="배경음악 켜기" title="배경음악 켜기">🔇</button>
+<button class="music-btn" id="musicBtn" type="button" onclick="toggleMusic()" aria-label="배경음악 켜기" title="배경음악 켜기"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-voloff"/></svg></button>
 
 <script>
   var bgm = document.getElementById('bgm');
@@ -2041,7 +2098,8 @@
   bgm.volume = 0.35;
 
   function setMusicUI(playing) {
-    musicBtn.textContent = playing ? '🔊' : '🔇';
+    musicBtn.innerHTML = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#'
+      + (playing ? 'i-volon' : 'i-voloff') + '"/></svg>';
     musicBtn.classList.toggle('on', playing);
     var label = playing ? '배경음악 끄기' : '배경음악 켜기';
     musicBtn.setAttribute('aria-label', label);
