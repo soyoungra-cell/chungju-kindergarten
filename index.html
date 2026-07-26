@@ -516,6 +516,21 @@
       line-height: 1.7;
       margin-top: 4px;
     }
+    /* 컨설팅기관 지정 항목 강조 */
+    .hist-item.hl .hist-year { color: var(--navy); }
+    .hist-item.hl .hist-body::before {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .hist-item.hl .hist-body p {
+      display: inline-block;
+      background: #EDF3FB;
+      color: var(--navy);
+      padding: 9px 15px;
+      border-radius: 11px;
+      font-weight: 700;
+    }
+
     .hist-close {
       margin-top: 40px;
       text-align: center;
@@ -1109,6 +1124,10 @@
         background: var(--white);
         border: 3px solid var(--mint-dark);
       }
+      .hist-item.hl::before {
+        background: var(--navy);
+        border-color: var(--navy);
+      }
       .hist-close { margin-top: 30px; padding: 22px 20px; }
       .hist-close p { font-size: 15px; }
 
@@ -1356,14 +1375,14 @@
         </div>
       </div>
 
-      <div class="hist-item">
+      <div class="hist-item hl">
         <div class="hist-year">2009 ~ 현재</div>
         <div class="hist-body">
           <p>충북육아종합지원센터 평가인증 컨설팅기관</p>
         </div>
       </div>
 
-      <div class="hist-item">
+      <div class="hist-item hl">
         <div class="hist-year">2023 ~ 현재</div>
         <div class="hist-body">
           <p>충주시육아종합지원센터 보육과정 컨설팅기관</p>
