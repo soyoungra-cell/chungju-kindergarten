@@ -93,18 +93,56 @@
     }
     .nav-links {
       display: flex;
-      gap: 15px;
+      gap: 24px;
       list-style: none;
+    }
+    .nav-links > li {
+      display: flex;
+      align-items: center;
+      height: 64px;
+      position: relative;
     }
     .nav-links a {
       white-space: nowrap;
       text-decoration: none;
       color: var(--text-mid);
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 600;
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--mint-dark); }
+    .caret { font-size: 9px; margin-left: 4px; opacity: .5; }
+
+    /* 하위 메뉴 */
+    .nav-sub {
+      position: absolute;
+      top: 100%; left: -16px;
+      min-width: 158px;
+      background: var(--white);
+      border: var(--border);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(61,44,44,0.12);
+      padding: 8px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-5px);
+      transition: opacity .16s, transform .16s, visibility .16s;
+    }
+    .nav-links > li.has-sub:hover .nav-sub,
+    .nav-links > li.has-sub:focus-within .nav-sub {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-sub li { display: block; height: auto; }
+    .nav-sub a {
+      display: block;
+      padding: 9px 18px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .nav-sub a:hover { background: var(--mint-light); color: var(--mint-dark); }
     .nav-cta {
       background: #FEE500;
       color: #3C1E1E;
@@ -142,6 +180,18 @@
       box-shadow: var(--shadow);
     }
     .mobile-menu.open { display: block; }
+    .mobile-menu {
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+    .mm-group {
+      padding: 14px 28px 5px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      color: var(--text-light);
+    }
+    .mobile-menu a.mm-sub { font-size: 14.5px; }
     .mobile-menu a {
       display: block;
       padding: 14px 28px;
@@ -1035,13 +1085,23 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">🌱 충주어린이집</a>
     <ul class="nav-links">
-      <li><a href="#about">소개</a></li>
-      <li><a href="#director">원장 인사말</a></li>
-      <li><a href="#program">운영철학</a></li>
-      <li><a href="#daily">하루 일과</a></li>
-      <li><a href="#classes">반 구성</a></li>
+      <li class="has-sub">
+        <a href="#about">원 소개<span class="caret">▾</span></a>
+        <ul class="nav-sub">
+          <li><a href="#about">어린이집 소개</a></li>
+          <li><a href="#director">원장 인사말</a></li>
+          <li><a href="#program">운영철학</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#daily">원 생활<span class="caret">▾</span></a>
+        <ul class="nav-sub">
+          <li><a href="#daily">하루 일과</a></li>
+          <li><a href="#classes">반 구성</a></li>
+          <li><a href="#safety">안전·위생</a></li>
+        </ul>
+      </li>
       <li><a href="#gallery">갤러리</a></li>
-      <li><a href="#safety">안전·위생</a></li>
       <li><a href="#admission">입소 안내</a></li>
       <li><a href="#map">오시는 길</a></li>
       <li><a href="#contact">문의</a></li>
@@ -1052,16 +1112,22 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about"    onclick="closeMenu()">소개</a>
-  <a href="#director" onclick="closeMenu()">원장 인사말</a>
-  <a href="#program"  onclick="closeMenu()">운영철학</a>
-  <a href="#daily"    onclick="closeMenu()">하루 일과</a>
-  <a href="#classes"  onclick="closeMenu()">반 구성</a>
-  <a href="#gallery"   onclick="closeMenu()">갤러리</a>
-  <a href="#safety"    onclick="closeMenu()">안전·위생</a>
-  <a href="#admission" onclick="closeMenu()">입소 안내</a>
-  <a href="#map"       onclick="closeMenu()">오시는 길</a>
-  <a href="#contact" onclick="closeMenu()">문의</a>
+  <div class="mm-group">원 소개</div>
+  <a href="#about"    class="mm-sub" onclick="closeMenu()">어린이집 소개</a>
+  <a href="#director" class="mm-sub" onclick="closeMenu()">원장 인사말</a>
+  <a href="#program"  class="mm-sub" onclick="closeMenu()">운영철학</a>
+
+  <div class="mm-group">원 생활</div>
+  <a href="#daily"   class="mm-sub" onclick="closeMenu()">하루 일과</a>
+  <a href="#classes" class="mm-sub" onclick="closeMenu()">반 구성</a>
+  <a href="#safety"  class="mm-sub" onclick="closeMenu()">안전·위생</a>
+
+  <div class="mm-group">이용 안내</div>
+  <a href="#gallery"   class="mm-sub" onclick="closeMenu()">갤러리</a>
+  <a href="#admission" class="mm-sub" onclick="closeMenu()">입소 안내</a>
+  <a href="#map"       class="mm-sub" onclick="closeMenu()">오시는 길</a>
+  <a href="#contact"   class="mm-sub" onclick="closeMenu()">문의</a>
+
   <a href="https://open.kakao.com/o/sqMRm9tf" target="_blank" onclick="closeMenu()">💬 카카오톡 문의</a>
 </div>
 
@@ -1379,10 +1445,10 @@
         </div>
         <ul class="safe-list">
           <li>조리사 2명이 <strong>원에서 직접 조리</strong></li>
-          <li>연령별 맞춤 식단 구성</li>
+          <li><strong>급식지원센터</strong>에서 제공하는 식단 운영</li>
+          <li>급식지원센터의 정기 <strong>위생·영양 지도</strong></li>
           <li>식재료 검수 및 보관 관리</li>
-          <li>조리실 위생 점검</li>
-          <li>알레르기 아동 개별 관리</li>
+          <li>입소 시 알레르기 여부를 확인해<br><strong>대체식 또는 제거식</strong>을 제공</li>
         </ul>
       </div>
 
