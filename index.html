@@ -27,6 +27,8 @@
       --text-light:     #B0A0A0;
       --bg-main:        #FAFAFA;
       --white:          #FFFFFF;
+      --navy:           #1B4F9C;
+      --navy-mid:       #3D6FB5;
       --shadow:         0 4px 16px rgba(61,44,44,0.08);
       --shadow-sm:      0 2px 8px rgba(61,44,44,0.06);
       --border:         1.5px solid rgba(61,44,44,0.08);
@@ -68,9 +70,10 @@
     }
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 22px;
       list-style: none;
     }
+    .nav-links a { white-space: nowrap; }
     .nav-links a {
       text-decoration: none;
       color: var(--text-mid);
@@ -299,6 +302,92 @@
     }
     .info-card a { color: var(--mint-dark); text-decoration: none; }
 
+    /* ───── DIRECTOR ───── */
+    #director {
+      background: linear-gradient(170deg, #F4F8FD 0%, var(--white) 55%, #F7FAFE 100%);
+    }
+    .dir-grid {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      gap: 60px;
+      align-items: center;
+    }
+    .dir-photo {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 10px 34px rgba(31,58,102,0.14);
+      background: var(--white);
+    }
+    .dir-photo img {
+      width: 100%;
+      height: 100%;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+    }
+    .dir-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      color: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .dir-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(31,58,102,0.28);
+    }
+    .dir-text h2 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -1px;
+      color: var(--text-dark);
+      margin-bottom: 34px;
+    }
+    .dir-text h2 em {
+      font-style: normal;
+      color: var(--navy);
+    }
+    .dir-body p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--text-mid);
+      margin-bottom: 22px;
+    }
+    .dir-body p.hl {
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .dir-sign {
+      margin-top: 38px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(31,58,102,0.16);
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .dir-sign strong {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+    .dir-sign strong span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-right: 10px;
+      letter-spacing: 0;
+    }
+
     /* ───── PROGRAM ───── */
     #program { background: var(--bg-main); }
     .prog-grid {
@@ -504,6 +593,11 @@
       .about-visual { height: 220px; font-size: 64px; order: -1; }
       .about-text h2 { font-size: 28px; }
 
+      .dir-grid { grid-template-columns: 1fr; gap: 34px; }
+      .dir-photo img { max-height: 380px; }
+      .dir-text h2 { font-size: 28px; margin-bottom: 26px; }
+      .dir-body p { font-size: 15px; line-height: 1.85; }
+
       .prog-grid  { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -538,6 +632,7 @@
     <a href="#" class="nav-logo">🌱 충주어린이집</a>
     <ul class="nav-links">
       <li><a href="#about">소개</a></li>
+      <li><a href="#director">원장 인사말</a></li>
       <li><a href="#program">프로그램</a></li>
       <li><a href="#gallery">갤러리</a></li>
       <li><a href="#map">오시는 길</a></li>
@@ -549,8 +644,9 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about"   onclick="closeMenu()">소개</a>
-  <a href="#program" onclick="closeMenu()">프로그램</a>
+  <a href="#about"    onclick="closeMenu()">소개</a>
+  <a href="#director" onclick="closeMenu()">원장 인사말</a>
+  <a href="#program"  onclick="closeMenu()">프로그램</a>
   <a href="#gallery" onclick="closeMenu()">갤러리</a>
   <a href="#map"     onclick="closeMenu()">오시는 길</a>
   <a href="#contact" onclick="closeMenu()">문의</a>
@@ -602,6 +698,34 @@
             <label>전화</label>
             <span><a href="tel:043-852-2493">043-852-2493</a></span>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ DIRECTOR ══════════════ -->
+<section id="director">
+  <div class="container">
+    <div class="dir-grid">
+      <div class="dir-photo">
+        <img src="images/director.jpg" alt="사회복지법인 충주어린이집 원장 라소영">
+      </div>
+      <div class="dir-text">
+        <div class="dir-label">DIRECTOR'S MESSAGE</div>
+        <h2><em>아이의 속도를</em><br>존중하는 교육</h2>
+        <div class="dir-body">
+          <p>아이들은 모두<br>저마다의 속도로 자랍니다.</p>
+          <p>걷는 속도도,<br>말을 배우는 속도도,<br>세상을 이해하는 속도도 다릅니다.</p>
+          <p>그래서 우리는<br>아이를 비교하거나 재촉하지 않습니다.</p>
+          <p>충분히 놀고,<br>마음껏 질문하고,<br>스스로 발견할 수 있도록 기다립니다.</p>
+          <p>70년 동안 충주어린이집이 지켜온 것은<br>하나의 교육방법이 아닙니다.</p>
+          <p class="hl">아이 한 명, 한 명을<br>있는 그대로 존중하는 마음입니다.</p>
+          <p>아이의 오늘이 행복해야<br>내일도 행복합니다.</p>
+        </div>
+        <div class="dir-sign">
+          사회복지법인 충주어린이집<br>
+          <strong><span>원장</span>라소영</strong>
         </div>
       </div>
     </div>
