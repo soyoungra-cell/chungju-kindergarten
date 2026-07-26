@@ -652,11 +652,33 @@
       color: var(--text-mid);
       line-height: 1.75;
     }
+    .feat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .feat-tags span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--lavender-dark);
+      background: var(--lavender-light);
+      border-radius: 100px;
+      padding: 4px 11px;
+    }
+    .feat-card small {
+      display: block;
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
     .f1 .feat-ico { background: var(--mint-light); }
     .f2 .feat-ico { background: var(--peach-light); }
     .f3 .feat-ico { background: var(--sky-light); }
     .f4 .feat-ico { background: #EDF6E0; }
     .f5 .feat-ico { background: var(--lavender-light); }
+    .f6 .feat-ico { background: var(--cream); }
 
     /* ───── DAILY SCHEDULE ───── */
     #daily { background: var(--white); }
@@ -1524,38 +1546,51 @@
     <div class="section-head">
       <div class="badge">특색 프로그램</div>
       <h2>우리 원의<br>특색 프로그램</h2>
-      <p>아이의 발달 시기에 맞춰 다섯 가지 프로그램을 운영합니다.</p>
+      <p>아이의 발달 시기에 맞춰 여섯 가지 프로그램을 운영합니다.</p>
     </div>
 
     <div class="feat-grid">
       <div class="feat-card f1">
         <div class="feat-ico">📖</div>
         <h3>문해력 프로그램</h3>
-        <p>그림책과 이야기 나누기를 통해 듣고 말하고 읽는 힘을 차근차근 기릅니다.</p>
+        <p>그림책을 매개로 질문하고 생각을 나누며 아이들이 스스로 이해하고 그림과 글로 표현하는 힘을 키웁니다. 읽고, 생각하고, 말하는 즐거운 경험이 튼튼한 문해력의 기초가 됩니다.</p>
       </div>
 
       <div class="feat-card f2">
         <div class="feat-ico">💛</div>
-        <h3>사회정서 프로그램</h3>
-        <p>자기 감정을 알아차리고 표현하며, 친구와 어울리는 법을 배웁니다.</p>
+        <h3>초등연계 K-사회정서학습</h3>
+        <p>아이들은 놀이와 경험을 통해 스스로를 이해하고, 타인을 존중하며 더 나은 관계를 만들어 가는 힘을 키워갑니다.</p>
       </div>
 
       <div class="feat-card f3">
-        <div class="feat-ico">🖐</div>
-        <h3>영아반 오감놀이</h3>
-        <p>만지고 보고 듣고 맡으며, 온몸의 감각으로 세상을 탐색합니다.</p>
+        <div class="feat-ico">🥕</div>
+        <h3>식습관 향상을 위한 오감놀이</h3>
+        <p>영아들이 식재료를 직접 보고, 만지고, 냄새 맡고, 맛보며 오감을 통해 탐색하는 즐거운 경험으로 바른 식습관과 건강한 성장을 이룹니다.</p>
       </div>
 
       <div class="feat-card f4">
         <div class="feat-ico">🌿</div>
-        <h3>생태 프로그램</h3>
-        <p>텃밭과 자연물을 직접 만나며 계절의 변화를 몸으로 경험합니다.</p>
+        <h3>생태체험활동</h3>
+        <p>자연을 보고, 만지고, 느끼며 생명의 소중함을 배워요. 텃밭과 전용 농장에서 계절마다 다양한 생태체험을 경험합니다.</p>
       </div>
 
       <div class="feat-card f5">
-        <div class="feat-ico">🎒</div>
-        <h3>유초 이음교육</h3>
-        <p>초등학교 생활을 미리 경험하며 자연스럽게 적응을 준비합니다.</p>
+        <div class="feat-ico">🤝</div>
+        <h3>영유 · 유초 이음교육</h3>
+        <p>영아가 유아반의 놀이나 전시에 초대되어 함께 놀이하며 정서적 안정을 이루며 유아반에 진급합니다. 유아반은 초등학교 생활을 미리 경험하며 자연스럽게 적응을 준비합니다.</p>
+      </div>
+
+      <div class="feat-card f6">
+        <div class="feat-ico">✨</div>
+        <h3>특별 · 특성화 프로그램</h3>
+        <p>아이들의 흥미와 잠재력을 키우는 다양하고 특별한 경험으로 더 큰 성장과 빛나는 미래를 준비합니다.</p>
+        <div class="feat-tags">
+          <span>디지털교육</span>
+          <span>영어</span>
+          <span>신체활동</span>
+          <span>악기놀이</span>
+        </div>
+        <small>악기놀이 : 실로폰, 칼림바, 리코더, 핸드벨, 리듬악기, 장구</small>
       </div>
     </div>
   </div>
