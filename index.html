@@ -316,6 +316,17 @@
     .btn-phone  { background: var(--navy-light); color: var(--navy); }
     .btn-naver  { background: #03C75A; color: #fff; }
 
+    @keyframes heroPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.045); }
+    }
+    .hero-btns .btn { animation: heroPulse 2.2s ease-in-out infinite; }
+    .hero-btns .btn:nth-child(2) { animation-delay: .35s; }
+    .hero-btns .btn:hover { animation: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-btns .btn { animation: none; }
+    }
+
     /* ───── SECTION COMMON ───── */
     section { padding: 88px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
@@ -440,12 +451,16 @@
       gap: 14px;
     }
     .info-card {
+      display: block;
       background: var(--bg-main);
       border: var(--border);
       border-radius: 18px;
       padding: 18px 20px;
       box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
     }
+    a.info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .info-card .ic { font-size: 26px; margin-bottom: 6px; }
     .info-card label {
       display: block;
@@ -462,6 +477,20 @@
       color: var(--text-dark);
     }
     .info-card a { color: var(--mint-dark); text-decoration: none; }
+    .info-card .hint {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--mint-dark);
+      margin-top: 4px;
+    }
+    .info-card-accent {
+      background: var(--navy-light);
+      border-color: rgba(27,79,156,0.18);
+    }
+    .info-card-accent label { color: var(--navy-mid); }
+    .info-card-accent span { color: var(--navy); }
+    .info-card-accent .hint { color: var(--navy); }
 
     /* ───── DIRECTOR ───── */
     #director {
@@ -1009,7 +1038,7 @@
     }
 
     /* ───── GALLERY ───── */
-    #gallery { background: var(--white); }
+    #gallery { background: var(--bg-main); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1040,11 +1069,9 @@
     .gallery-item:hover img { transform: scale(1.06); }
     .gallery-item:hover { transform: scale(1.04); box-shadow: var(--shadow); }
     .gallery-footer { text-align: center; }
-    .feat-footer { text-align: center; margin-top: 36px; }
-    .prog-footer { text-align: center; margin-top: 36px; }
 
     /* ───── SAFETY ───── */
-    #safety { background: var(--bg-main); }
+    #safety { background: var(--white); }
     .safe-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1626,26 +1653,27 @@
         <h2>충주어린이집에<br>오신 것을 환영해요!</h2>
         <p>0세부터 7세까지 분절없는 체계적인 교육으로 정서적으로 안정적인 성장을 이룹니다. 전문 교사진과 함께 아이들의 개성과 창의성을 존중하는 교육을 실천하고 있습니다.</p>
         <div class="info-grid">
-          <div class="info-card">
+          <a href="#daily" class="info-card">
             <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></div>
             <label>운영 시간</label>
             <span>07:30 ~ 19:30</span>
-          </div>
-          <div class="info-card">
+          </a>
+          <a href="https://www.childcare.go.kr" target="_blank" rel="noopener" class="info-card info-card-accent">
             <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg></div>
             <label>대상 연령</label>
             <span>0세 ~ 7세</span>
-          </div>
-          <div class="info-card">
+            <small class="hint">입소대기 신청하기 →</small>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=36.9543948%2C127.9387666" target="_blank" rel="noopener" class="info-card">
             <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></div>
             <label>위치</label>
-            <span><a href="https://www.google.com/maps/search/?api=1&query=36.9543948%2C127.9387666" target="_blank" rel="noopener">충북 충주시 원호암4길 12</a></span>
-          </div>
-          <div class="info-card">
+            <span>충북 충주시 원호암4길 12</span>
+          </a>
+          <a href="tel:043-852-2493" class="info-card">
             <div class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></div>
             <label>전화</label>
-            <span><a href="tel:043-852-2493">043-852-2493</a></span>
-          </div>
+            <span>043-852-2493</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1788,10 +1816,6 @@
         <p>전문성과 열정을 발휘하며 서로 존중하고 함께 성장하는 보람 있는 교직문화를 만들어가요.</p>
       </div>
     </div>
-
-    <div class="prog-footer">
-      <a href="https://www.instagram.com/p/DbFGv7pElZE/?igsh=MXY2ZmI1dDRpNHduMQ==" target="_blank" rel="noopener" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램에서 자세히 보기</a>
-    </div>
   </div>
 </section>
 
@@ -1800,8 +1824,8 @@
   <div class="container">
     <div class="section-head">
       <div class="badge">특색 프로그램</div>
-      <h2>우리 원의<br>특색 프로그램</h2>
-      <p>아이의 발달 시기에 맞춰 여섯 가지 프로그램을 운영합니다.</p>
+      <h2>충주어린이집의<br>특별한 프로그램</h2>
+      <p>전 연령 적기교육 실현을 중요하게 생각합니다.</p>
     </div>
 
     <div class="feat-grid">
@@ -1875,9 +1899,27 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="feat-footer">
-      <a href="https://www.instagram.com/p/DbMeT08EoSA/?igsh=MXZmZHVqNWdidTE1Yw==" target="_blank" rel="noopener" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램에서 자세히 보기</a>
+<!-- ══════════════ GALLERY ══════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="badge">우리 어린이집 모습</div>
+      <h2>사진으로 만나는<br>충주어린이집</h2>
+      <p>아이들이 행복하게 생활하는 일상을 담았어요.</p>
+    </div>
+    <div class="gallery-grid">
+      <button type="button" class="gallery-item" onclick="openLightbox(0)" aria-label="갤러리 사진 1 크게 보기"><img src="images/gallery1.jpg" alt="갤러리 사진 1" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(1)" aria-label="갤러리 사진 2 크게 보기"><img src="images/gallery2.jpg" alt="갤러리 사진 2" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(2)" aria-label="갤러리 사진 3 크게 보기"><img src="images/gallery3.jpg" alt="갤러리 사진 3" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(3)" aria-label="갤러리 사진 4 크게 보기"><img src="images/gallery4.jpg" alt="갤러리 사진 4" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(4)" aria-label="갤러리 사진 5 크게 보기"><img src="images/gallery5.jpg" alt="갤러리 사진 5" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(5)" aria-label="갤러리 사진 6 크게 보기"><img src="images/gallery6.jpg" alt="갤러리 사진 6" loading="lazy"></button>
+    </div>
+    <div class="gallery-footer">
+      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램에서 더 보기</a>
     </div>
   </div>
 </section>
@@ -1929,14 +1971,14 @@
         <ul class="day-list">
           <li><div class="day-time">07:30~09:00</div><div class="day-act">등원 및 맞이하기<small>건강상태 확인, 통합보육</small></div></li>
           <li><div class="day-time">09:00~09:30</div><div class="day-act">오전 간식</div></li>
-          <li><div class="day-time">09:30~10:00</div><div class="day-act">하루 일과 나누기<small>인사 나누기, 오늘의 활동 계획</small></div></li>
+          <li><div class="day-time">09:30~10:00</div><div class="day-act">하루 일과 나누기<small>인사 나누기, 오늘의 활동 계획, 동시 읊기</small></div></li>
           <li><div class="day-time">10:00~11:30</div><div class="day-act">오전 활동<small>실내놀이, 누리과정 대·소집단 활동</small></div></li>
           <li><div class="day-time">11:30~12:30</div><div class="day-act">점심 및 이 닦기</div></li>
           <li class="key"><div class="day-time">12:30~14:30</div><div class="day-act">바깥놀이 및 특별·특성화 활동<small>날씨와 활동 일정에 따라 운영합니다</small></div></li>
           <li><div class="day-time">14:30~15:00</div><div class="day-act">휴식 및 정리<small>손 씻기, 컨디션 확인</small></div></li>
           <li><div class="day-time">15:00~15:30</div><div class="day-act">오후 간식</div></li>
           <li><div class="day-time">15:30~16:30</div><div class="day-act">오후 놀이 및 활동 마무리</div></li>
-          <li><div class="day-time">16:30~17:00</div><div class="day-act">하루 되돌아보기, 귀가 준비, 하원</div></li>
+          <li><div class="day-time">16:30~17:00</div><div class="day-act">하루 되돌아보기, 귀가 준비, 하원<small>전체방송에 참여하기</small></div></li>
           <li><div class="day-time">17:00~19:30</div><div class="day-act">연장보육</div></li>
         </ul>
       </div>
@@ -1944,7 +1986,9 @@
 
     <ul class="day-note">
       <li><strong>만 2세반 특별활동</strong> — 12시 이후 시간대에 주 2회, 회당 20분 정도로 진행됩니다.</li>
-      <li><strong>운영시간</strong> — 07:30 ~ 19:30이며, 17:00 이후는 연장보육으로 운영됩니다.</li>
+      <li><strong>운영요일</strong> — 월요일 ~ 금요일</li>
+      <li><strong>운영시간</strong> — 오전 7:30 ~ 오후 7:30 (연장반 운영)</li>
+      <li><strong>주말 및 공휴일</strong> — 휴원</li>
       <li>일과는 계절과 날씨, 아이들의 컨디션에 따라 유연하게 조정될 수 있습니다.</li>
     </ul>
   </div>
@@ -2028,28 +2072,6 @@
           <span>692㎡ <em>약 209평</em></span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ GALLERY ══════════════ -->
-<section id="gallery">
-  <div class="container">
-    <div class="section-head">
-      <div class="badge">우리 어린이집 모습</div>
-      <h2>사진으로 만나는<br>충주어린이집</h2>
-      <p>아이들이 행복하게 생활하는 일상을 담았어요.</p>
-    </div>
-    <div class="gallery-grid">
-      <button type="button" class="gallery-item" onclick="openLightbox(0)" aria-label="갤러리 사진 1 크게 보기"><img src="images/gallery1.jpg" alt="갤러리 사진 1" loading="lazy"></button>
-      <button type="button" class="gallery-item" onclick="openLightbox(1)" aria-label="갤러리 사진 2 크게 보기"><img src="images/gallery2.jpg" alt="갤러리 사진 2" loading="lazy"></button>
-      <button type="button" class="gallery-item" onclick="openLightbox(2)" aria-label="갤러리 사진 3 크게 보기"><img src="images/gallery3.jpg" alt="갤러리 사진 3" loading="lazy"></button>
-      <button type="button" class="gallery-item" onclick="openLightbox(3)" aria-label="갤러리 사진 4 크게 보기"><img src="images/gallery4.jpg" alt="갤러리 사진 4" loading="lazy"></button>
-      <button type="button" class="gallery-item" onclick="openLightbox(4)" aria-label="갤러리 사진 5 크게 보기"><img src="images/gallery5.jpg" alt="갤러리 사진 5" loading="lazy"></button>
-      <button type="button" class="gallery-item" onclick="openLightbox(5)" aria-label="갤러리 사진 6 크게 보기"><img src="images/gallery6.jpg" alt="갤러리 사진 6" loading="lazy"></button>
-    </div>
-    <div class="gallery-footer">
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램에서 더 보기</a>
     </div>
   </div>
 </section>
@@ -2142,8 +2164,8 @@
   <div class="container">
     <div class="section-head">
       <div class="badge">입소 안내</div>
-      <h2>입소를 준비하고 계신가요?</h2>
-      <p>어린이집 입소 대기는 정부 통합 시스템인 아이사랑 포털에서 온라인으로 신청합니다.</p>
+      <h2>아이의 교육을 책임질<br>우수 교육기관을 찾고 계신가요?</h2>
+      <p>언제든지 상담 가능합니다. 어린이집 입소 대기는 정부 통합 시스템인 아이사랑 포털에서 온라인으로 신청합니다.</p>
     </div>
 
     <div class="adm-steps">
@@ -2215,7 +2237,7 @@
           <span class="mi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></span>
           <div>
             <label>운영 시간</label>
-            <p>월 ~ 금 &nbsp; 07:30 ~ 19:30</p>
+            <p>월 ~ 금 &nbsp; 오전 7:30 ~ 오후 7:30 (연장반 운영)<br>주말 및 공휴일 휴원</p>
           </div>
         </div>
         <div class="map-row">
@@ -2279,6 +2301,7 @@
 <button class="music-btn" id="musicBtn" type="button" onclick="toggleMusic()" aria-label="배경음악 켜기" title="배경음악 켜기"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-voloff"/></svg></button>
 
 <script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
   var bgm = document.getElementById('bgm');
   var musicBtn = document.getElementById('musicBtn');
   bgm.volume = 0.35;
