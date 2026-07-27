@@ -309,6 +309,63 @@
     section { padding: 88px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
     .section-head { text-align: center; margin-bottom: 52px; }
+
+    /* 하루 일과 섹션 헤더 변주: 좌우 배치 + 운영시간 강조 */
+    .daily-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .daily-head-text { flex: 1; min-width: 260px; }
+    .daily-head-time {
+      flex-shrink: 0;
+      text-align: center;
+      background: var(--navy-light);
+      border-radius: 20px;
+      padding: 20px 32px;
+    }
+    .dht-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .dht-value {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .dht-value em { font-style: normal; margin: 0 6px; color: var(--text-light); font-weight: 400; }
+
+    /* 반 구성 섹션 헤더 변주: 핵심 숫자 강조 */
+    .cls-stats {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .cls-stat { display: flex; align-items: baseline; gap: 6px; }
+    .cls-stat strong {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .cls-stat span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+    .cls-stat-sep { width: 1px; height: 24px; background: rgba(61,44,44,0.15); }
     .badge {
       display: inline-block;
       background: var(--mint-light);
@@ -1399,6 +1456,13 @@
       .lb-img { max-height: 74vh; }
       .lightbox { padding: 12px; }
 
+      .daily-head { flex-direction: column; text-align: center; gap: 20px; }
+      .daily-head-text { min-width: 0; }
+      .dht-value { font-size: 24px; }
+
+      .cls-stats { gap: 16px; }
+      .cls-stat strong { font-size: 26px; }
+
       .cls-block + .cls-block { margin-top: 40px; }
       .cls-title { font-size: 18px; }
       .cls-table th, .cls-table td { padding: 13px 14px; font-size: 14px; }
@@ -1810,10 +1874,16 @@
 <!-- ══════════════ DAILY SCHEDULE ══════════════ -->
 <section id="daily">
   <div class="container">
-    <div class="section-head">
-      <div class="badge">하루 일과</div>
-      <h2>아이의 하루를<br>이렇게 보냅니다</h2>
-      <p>07:30부터 19:30까지, 영아반과 유아반의 발달 특성에 맞춰 하루를 구성합니다.</p>
+    <div class="section-head daily-head">
+      <div class="daily-head-text">
+        <div class="badge">하루 일과</div>
+        <h2>아이의 하루를<br>이렇게 보냅니다</h2>
+        <p>영아반과 유아반의 발달 특성에 맞춰 하루를 구성합니다.</p>
+      </div>
+      <div class="daily-head-time">
+        <span class="dht-label">운영시간</span>
+        <span class="dht-value">07:30<em>–</em>19:30</span>
+      </div>
     </div>
 
     <div class="day-grid">
@@ -1875,7 +1945,14 @@
     <div class="section-head">
       <div class="badge">반 구성</div>
       <h2>학급과 교직원 현황</h2>
-      <p>만 0세부터 만 5세까지 13학급으로 운영하며, 각 학급마다 담임교사가 함께합니다.</p>
+      <p>만 0세부터 만 5세까지 각 학급마다 담임교사가 함께합니다.</p>
+      <div class="cls-stats">
+        <div class="cls-stat"><strong>13</strong><span>학급</span></div>
+        <div class="cls-stat-sep"></div>
+        <div class="cls-stat"><strong>99</strong><span>명 원아</span></div>
+        <div class="cls-stat-sep"></div>
+        <div class="cls-stat"><strong>23</strong><span>명 교직원</span></div>
+      </div>
     </div>
 
     <!-- 학급 현황 -->
