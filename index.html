@@ -949,12 +949,16 @@
       margin-bottom: 32px;
     }
     .gallery-item {
+      border: none;
+      background: none;
+      padding: 0;
+      font: inherit;
       border-radius: 22px;
       aspect-ratio: 1;
       display: block;
+      width: 100%;
       box-shadow: var(--shadow-sm);
       cursor: pointer;
-      text-decoration: none;
       transition: all .25s;
       overflow: hidden;
     }
@@ -1209,6 +1213,61 @@
     .footer-icons a:hover { background: rgba(255,255,255,.2); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,.3); }
 
+    /* ───── GALLERY LIGHTBOX ───── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,15,15,.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lb-img {
+      max-width: min(920px, 90vw);
+      max-height: 82vh;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+      display: block;
+    }
+    .lb-close, .lb-nav {
+      position: absolute;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s;
+    }
+    .lb-close:hover, .lb-nav:hover { background: rgba(255,255,255,.26); }
+    .lb-close {
+      top: 20px; right: 20px;
+      width: 44px; height: 44px;
+      font-size: 20px;
+    }
+    .lb-nav {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px; height: 48px;
+      font-size: 22px;
+    }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-count {
+      position: absolute;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
     /* ───── BACKGROUND MUSIC ───── */
     .music-btn {
       position: fixed;
@@ -1327,6 +1386,12 @@
 
       .music-btn { right: 14px; bottom: 14px; width: 48px; height: 48px; font-size: 19px; }
 
+      .lb-nav { width: 40px; height: 40px; font-size: 19px; }
+      .lb-prev { left: 8px; }
+      .lb-next { right: 8px; }
+      .lb-close { top: 10px; right: 10px; width: 38px; height: 38px; font-size: 17px; }
+      .lb-img { max-height: 74vh; }
+
       .cls-block + .cls-block { margin-top: 40px; }
       .cls-title { font-size: 18px; }
       .cls-table th, .cls-table td { padding: 13px 14px; font-size: 14px; }
@@ -1395,6 +1460,9 @@
 <g id="i-voloff"><path d="M11 5 6 9H3v6h3l5 4Z"/><path d="M17 9l4 6"/><path d="M21 9l-4 6"/></g>
 <g id="i-flower"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="7" r="2.8"/><circle cx="12" cy="17" r="2.8"/><circle cx="7" cy="12" r="2.8"/><circle cx="17" cy="12" r="2.8"/></g>
 <g id="i-menu"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></g>
+<g id="i-close"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></g>
+<g id="i-chev-l"><path d="M15 6l-6 6 6 6"/></g>
+<g id="i-chev-r"><path d="M9 6l6 6-6 6"/></g>
 </defs></svg>
 <!-- ══════════════ NAV ══════════════ -->
 <nav>
@@ -1870,18 +1938,27 @@
       <p>아이들이 행복하게 생활하는 일상을 담았어요.</p>
     </div>
     <div class="gallery-grid">
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery1.jpg" alt="갤러리 사진 1"></a>
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery2.jpg" alt="갤러리 사진 2"></a>
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery3.jpg" alt="갤러리 사진 3"></a>
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery4.jpg" alt="갤러리 사진 4"></a>
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery5.jpg" alt="갤러리 사진 5"></a>
-      <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="gallery-item"><img src="images/gallery6.jpg" alt="갤러리 사진 6"></a>
+      <button type="button" class="gallery-item" onclick="openLightbox(0)" aria-label="갤러리 사진 1 크게 보기"><img src="images/gallery1.jpg" alt="갤러리 사진 1" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(1)" aria-label="갤러리 사진 2 크게 보기"><img src="images/gallery2.jpg" alt="갤러리 사진 2" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(2)" aria-label="갤러리 사진 3 크게 보기"><img src="images/gallery3.jpg" alt="갤러리 사진 3" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(3)" aria-label="갤러리 사진 4 크게 보기"><img src="images/gallery4.jpg" alt="갤러리 사진 4" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(4)" aria-label="갤러리 사진 5 크게 보기"><img src="images/gallery5.jpg" alt="갤러리 사진 5" loading="lazy"></button>
+      <button type="button" class="gallery-item" onclick="openLightbox(5)" aria-label="갤러리 사진 6 크게 보기"><img src="images/gallery6.jpg" alt="갤러리 사진 6" loading="lazy"></button>
     </div>
     <div class="gallery-footer">
       <a href="https://www.instagram.com/043_852_2493?igsh=MTZsYjV1YjUwcWR0Mg==" target="_blank" class="btn btn-insta"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>인스타그램에서 더 보기</a>
     </div>
   </div>
 </section>
+
+<!-- ══════════════ 갤러리 라이트박스 ══════════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button type="button" class="lb-close" onclick="closeLightbox()" aria-label="닫기"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" onclick="lbMove(-1)" aria-label="이전 사진"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button type="button" class="lb-nav lb-next" onclick="lbMove(1)" aria-label="다음 사진"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
 
 <!-- ══════════════ SAFETY ══════════════ -->
 <section id="safety">
@@ -2126,6 +2203,42 @@
   window.addEventListener('load', function () {
     var p = bgm.play();
     if (p && p.catch) { p.catch(function () {}); }
+  });
+
+  var galleryImgs = Array.prototype.slice.call(document.querySelectorAll('.gallery-item img'));
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCount = document.getElementById('lbCount');
+  var lbIndex = 0;
+
+  function updateLightbox() {
+    var item = galleryImgs[lbIndex];
+    lbImg.src = item.src;
+    lbImg.alt = item.alt;
+    lbCount.textContent = (lbIndex + 1) + ' / ' + galleryImgs.length;
+  }
+  function openLightbox(i) {
+    lbIndex = i;
+    updateLightbox();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function lbMove(delta) {
+    lbIndex = (lbIndex + delta + galleryImgs.length) % galleryImgs.length;
+    updateLightbox();
+  }
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb) { closeLightbox(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) { return; }
+    if (e.key === 'Escape') { closeLightbox(); }
+    if (e.key === 'ArrowLeft') { lbMove(-1); }
+    if (e.key === 'ArrowRight') { lbMove(1); }
   });
 
   function toggleMenu() {
