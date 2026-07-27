@@ -1422,24 +1422,16 @@
       100% { top: 20%; left: 10%; }
     }
     .cf-bubble {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 700;
-      text-align: left;
-      line-height: 1.35;
-      max-width: 200px;
-      padding: 14px 18px;
-      border-radius: 24px;
-      box-shadow: 0 8px 22px rgba(27,79,156,0.35);
-      text-decoration: none;
+      display: block;
       animation: cfPulse 2s ease-in-out infinite;
     }
-    .cf-bubble .ico { font-size: 22px; flex-shrink: 0; }
-    .cf-bubble:hover { background: var(--navy-mid); animation-play-state: paused; }
+    .cf-bubble:hover { animation-play-state: paused; }
+    .cf-badge-img {
+      display: block;
+      width: 96px;
+      height: 96px;
+      filter: drop-shadow(0 6px 16px rgba(27,79,156,0.4));
+    }
     @keyframes cfPulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -1470,7 +1462,7 @@
         right: 16px;
         transform: none;
       }
-      .cf-bubble { font-size: 13px; max-width: 168px; padding: 12px 16px; }
+      .cf-badge-img { width: 76px; height: 76px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .chatbot-float { animation: none; }
@@ -2389,8 +2381,7 @@
 <div class="chatbot-float" id="chatbotFloat">
   <button type="button" class="cf-close" onclick="closeChatbotFloat()" aria-label="닫기"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button>
   <a href="https://gemini.google.com/gem/1U-weNo91Riu3HMaU8_V8sLMvmIGIInvU?usp=sharing" target="_blank" rel="noopener" class="cf-bubble">
-    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-spark"/></svg>
-    어린이집 양육상담<br>클릭하세요!
+    <img src="images/chatbot-badge.png" alt="충주어린이집 아이양육챗봇 - 클릭하여 상담하기" class="cf-badge-img">
   </a>
 </div>
 
